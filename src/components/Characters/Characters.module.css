@@ -1,0 +1,99 @@
+.characters_page{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+  
+  .card_character_wrapper{
+    display: flex;
+   justify-content: space-between;
+    height: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  
+  }
+  
+  .card_character{
+    width: 250px;
+    height: 370px;
+    border-radius: 25px;
+    box-shadow: 0px 6px 12px -5px rgba(34, 60, 80, 0.6);
+    margin-bottom: 60px;
+    background-color: #242424;
+    margin: 25px;
+  }
+  
+  .card_img{
+    width: 100%;
+      /* background: url(./spider-man.jpg); */
+      height: 65%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    border-radius: 25px 25px 25px 25px;
+    border-bottom: 2px rgb(218, 17, 17) solid;
+  }
+  
+  .card_info{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card_name{
+    color: #eeeeee;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .card_name2{
+    color: #eeeeee;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn_favorite{
+    width: 125px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background-color:rgb(218, 17, 17);
+    color:rgba(255, 255, 255, 0.959);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn_favorite_delete{
+    width: 125px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background-color:rgb(92, 92, 92);
+    color:rgba(255, 255, 255, 0.959);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page{
+    border: 1px #242424 solid;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .selected{
+    font-weight:bold;
+    cursor: pointer;
+  }

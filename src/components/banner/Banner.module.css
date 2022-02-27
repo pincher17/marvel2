@@ -1,0 +1,15 @@
+.banner{
+    width: 1200px;
+    margin: 50px auto;
+    padding-bottom: 50px;
+  }
+
+  .background{
+    width: 100%;
+      background: url(https://s1.1zoom.ru/big7/291/Avengers_Age_of_Ultron_442151.jpg);
+      height: 40vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    margin-bottom: 80px;
+  }
