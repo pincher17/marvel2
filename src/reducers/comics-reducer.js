@@ -1,4 +1,4 @@
-const SET_CHARACTERS = "SET_CHARACTERS";
+const SET_COMICS = "SET_COMICS";
 const SET_PAGE = "SET_PAGE";
 const SET_SORT = "SET_SORT";
 const SET_SEARCH = "SET_SEARCH";
@@ -9,17 +9,17 @@ const defaultState = {
     items: [],
     offset: 0,
     page: 1,
-    sort: "name",
+    sort: "title",
     search: "",
     favorites: [],
 };
 
-function charactersReducer(state = defaultState, action) {
+function comicsReducer(state = defaultState, action) {
     switch (action.type) {
-        case SET_CHARACTERS:
+        case SET_COMICS:
             return {
                 ...state,
-                items: [...action.characters],
+                items: [...action.comics],
             };
         case SET_PAGE:
             return {
@@ -55,9 +55,9 @@ function charactersReducer(state = defaultState, action) {
     }
 }
 
-export let setCharactersActionCreator = (characters) => ({
-    type: SET_CHARACTERS,
-    characters: characters,
+export let setComicsActionCreator = (comics) => ({
+    type: SET_COMICS,
+    comics: comics,
 });
 export let setPageActionCreator = (page) => ({
     type: SET_PAGE,
@@ -80,4 +80,4 @@ export let deleteFavoriteActionCreator = (favoriteId) => ({
     favoriteId: favoriteId,
 });
 
-export default charactersReducer;
+export default comicsReducer;

@@ -7,7 +7,7 @@ import s from './Characters.module.css';
 
 const CharactersFavorites = (props) => {
 
-
+debugger;
   return (
     <div>
 
@@ -27,7 +27,7 @@ const CharactersFavorites = (props) => {
                 <span className={s.card_name}>{item.name}</span>
                 {/* <span className="card-name2">{item.name}</span> */}
                 {/* <div> */}
-                <button onClick={() => props.deleteFavorite(item.id)} className={s.btn_favorite_delete}>delete</button>
+                <button onClick={() => props.deleteFavoriteActionCreator(item.id)} className={s.btn_favorite_delete}>delete</button>
                 {/*  </div> */}
               </div>
 

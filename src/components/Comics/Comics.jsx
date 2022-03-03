@@ -36,8 +36,8 @@ export default function SimpleSlider() {
             <div className={s.card_character_wrapper}>
               <div className={s.card_character} key={item.name}>
 
-                <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + img + ')' }}></div>
-                <div className={s.card_info}>
+                 <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + img + ')' }}></div>
+                 <div className={s.card_info}>
 
                   <span className={s.card_name}>{item.name}</span>
                   {/* <span className="card-name2">{item.name}</span> */}

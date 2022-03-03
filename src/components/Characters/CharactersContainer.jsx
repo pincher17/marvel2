@@ -18,7 +18,7 @@ class CharactersAPI extends React.Component {
     debugger;
     this.props.setPage(pageNumber);
     //this.props.setSort(sort);
-
+  
     axios.get(`https://gateway.marvel.com/v1/public/characters?${this.props.search === '' ? '' : `nameStartsWith=${this.props.search}`}&orderBy=${this.props.sort}&limit=8&offset=${(pageNumber - 1) * 8}&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
       //debugger;
       this.props.setCharacters(response.data.data.results);
@@ -30,7 +30,7 @@ class CharactersAPI extends React.Component {
     this.props.setSort(sort);
 
     axios.get(`https://gateway.marvel.com/v1/public/characters?${this.props.search === '' ? '' : `nameStartsWith=${this.props.search}`}&orderBy=${sort}&limit=8&offset=0&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
-      //debugger;
+      debugger;
       this.props.setCharacters(response.data.data.results);
     })
   }
