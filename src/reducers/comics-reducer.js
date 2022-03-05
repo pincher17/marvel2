@@ -1,9 +1,9 @@
 const SET_COMICS = "SET_COMICS";
-const SET_PAGE = "SET_PAGE";
-const SET_SORT = "SET_SORT";
-const SET_SEARCH = "SET_SEARCH";
-const SET_ADD_FAVORITES = "SET_ADD_FAVORITES";
-const DELETE_FAVORITES = "DELETE_FAVORITES";
+const SET_PAGE_COMICS = "SET_PAGE_COMICS";
+const SET_SORT_COMICS = "SET_SORT_COMICS";
+const SET_SEARCH_COMICS = "SET_SEARCH_COMICS";
+const SET_ADD_FAVORITES_COMICS = "SET_ADD_FAVORITES_COMICS";
+const DELETE_FAVORITES_COMICS = "DELETE_FAVORITES_COMICS";
 
 const defaultState = {
     items: [],
@@ -21,22 +21,22 @@ function comicsReducer(state = defaultState, action) {
                 ...state,
                 items: [...action.comics],
             };
-        case SET_PAGE:
+        case SET_PAGE_COMICS:
             return {
                 ...state,
                 page: action.page,
             };
-        case SET_SORT:
+        case SET_SORT_COMICS:
             return {
                 ...state,
                 sort: action.sort,
             };
-        case SET_SEARCH:
+        case SET_SEARCH_COMICS:
             return {
                 ...state,
                 search: action.search,
             };
-        case SET_ADD_FAVORITES:
+        case SET_ADD_FAVORITES_COMICS:
             return {
                 ...state,
                 favorites: [
@@ -44,7 +44,7 @@ function comicsReducer(state = defaultState, action) {
                     state.items.find((item) => item.id == action.favoriteId),
                 ],
             };
-        case DELETE_FAVORITES:
+        case DELETE_FAVORITES_COMICS:
             //let deleteFavorite = state.favorites.indexOf(state.items.find(item => item.id == action.favoriteId))
             return {
                 ...state,
@@ -55,28 +55,28 @@ function comicsReducer(state = defaultState, action) {
     }
 }
 
-export let setComicsActionCreator = (comics) => ({
+export let setComics = (comics) => ({
     type: SET_COMICS,
     comics: comics,
 });
-export let setPageActionCreator = (page) => ({
-    type: SET_PAGE,
+export let setPage = (page) => ({
+    type: SET_PAGE_COMICS,
     page: page
 });
-export let setSortActionCreator = (sort) => ({
-    type: SET_SORT,
+export let setSort = (sort) => ({
+    type: SET_SORT_COMICS,
     sort: sort
 });
-export let setSearchActionCreator = (search) => ({
-    type: SET_SEARCH,
+export let setSearch = (search) => ({
+    type: SET_SEARCH_COMICS,
     search: search,
 });
-export let setAddFavoriteActionCreator = (favoriteId) => ({
-    type: SET_ADD_FAVORITES,
+export let setAddFavorite = (favoriteId) => ({
+    type: SET_ADD_FAVORITES_COMICS,
     favoriteId: favoriteId,
 });
-export let deleteFavoriteActionCreator = (favoriteId) => ({
-    type: DELETE_FAVORITES,
+export let deleteFavorite = (favoriteId) => ({
+    type: DELETE_FAVORITES_COMICS,
     favoriteId: favoriteId,
 });
 

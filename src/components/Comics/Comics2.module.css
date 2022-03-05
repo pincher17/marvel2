@@ -104,3 +104,12 @@
     font-weight:bold;
     cursor: pointer;
   }
+
+  .pagination{
+    margin: 0 auto;
+  }
+
+  .pagination_wrapper{
+    display: flex;
+    width: 1200px;
+  }

@@ -1,6 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import Masthead from '../MastHead/Masthead';
 import s from './Comics2.module.css';
+import ReactDOM from 'react-dom';
+import { Pagination } from '@mui/material';
+
 
 const Comics2 = (props) => {
 
@@ -68,12 +71,15 @@ const Comics2 = (props) => {
           ))}
         </div>
 
-        <div>
-          {allPages.map(p => {
+        <div className={s.pagination_wrapper}>
+        {/*   {allPages.map(p => {
             return (
               <span onClick={() => { props.pageChange(p) }} className={props.page === p && s.selected}>{p}</span>)
 
-          })}
+          })} */}
+          <div className={s.pagination}>
+          <Pagination count={100} onChange={(_, num) => props.pageChange(num)} defaultPage={props.page} variant="outlined" shape="rounded" color="primary"  />
+          </div>
         </div>
 
       </div>

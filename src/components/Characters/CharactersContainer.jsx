@@ -9,7 +9,7 @@ class CharactersAPI extends React.Component {
 
   componentDidMount() {
 
-    axios.get('https://gateway.marvel.com/v1/public/characters?&orderBy=name&limit=8&offset=0&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510').then(response => {
+    axios.get(`https://gateway.marvel.com/v1/public/characters?${this.props.search === '' ? '' : `nameStartsWith=${this.props.search}`}&orderBy=${this.props.sort}&limit=8&offset=${(this.props.page - 1) * 8}&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
       //debugger;
       this.props.setCharacters(response.data.data.results);
     })

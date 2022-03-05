@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
-import { setCharactersActionCreator, setPageActionCreator, setSearchActionCreator, setSortActionCreator, setAddFavoriteActionCreator, deleteFavoriteActionCreator } from '../../reducers/characters-reducer';
 import Comics2 from './Comics2.jsx';
 import * as axios from 'axios';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { setComicsActionCreator } from '../../reducers/comics-reducer';
+import { setComics,setPage, setSearch, setSort, setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
 
 class ComicsContainer extends React.Component {
 
   componentDidMount() {
 
-    axios.get('https://gateway.marvel.com/v1/public/comics?format=comic&orderBy=title&limit=8&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510').then(response => {
+    axios.get(`https://gateway.marvel.com/v1/public/comics?format=comic&${this.props.search === '' ? '' : `titleStartsWith=${this.props.search}`}&orderBy=${this.props.sort}&limit=8&offset=${(this.props.page - 1) * 8}&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
       //debugger;
       this.props.setComics(response.data.data.results);
     })
@@ -43,7 +42,7 @@ class ComicsContainer extends React.Component {
     
     if (value === '') {
       axios.get('https://gateway.marvel.com/v1/public/comics?format=comic&orderBy=title&limit=8&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510').then(response => {
-        //debugger;
+       
         this.props.setComics(response.data.data.results);
       })
     } else {
@@ -53,7 +52,7 @@ class ComicsContainer extends React.Component {
       })
     }
 
-    //this.props.setSort(sort);
+    
   }
 
 
@@ -85,22 +84,22 @@ let mapDispatchToProps = (dispatch) => {
 
   return {
     setComics: (comics) => {
-      dispatch(setComicsActionCreator(comics))
+      dispatch(setComics(comics))
     },
     setPage: (page) => {
-      dispatch(setPageActionCreator(page))
+      dispatch(setPage(page))
     },
     setSort: (sort) => {
-      dispatch(setSortActionCreator(sort))
+      dispatch(setSort(sort))
     },
     setSearch: (search) => {
-      dispatch(setSearchActionCreator(search))
+      dispatch(setSearch(search))
     },
     setAddFavorite: (favoriteId) => {
-      dispatch(setAddFavoriteActionCreator(favoriteId))
+      dispatch(setAddFavorite(favoriteId))
     },
     deleteFavorite: (favoriteId) => {
-      dispatch(deleteFavoriteActionCreator(favoriteId))
+      dispatch(deleteFavorite(favoriteId))
     },
   }
 }
