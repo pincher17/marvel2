@@ -1,53 +1,30 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import s from './Banner.module.css';
+import spider from "./spider.png"
 
 
 
+const Banner = (props) =>{
 
+    return(
 
-function SampleNextArrow(props) {
-  debugger;
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red", color: "green", right: "50px"}}
-      onClick={onClick}
-    />
-  );
-}
-
-
-
-export default class PauseOnHover extends Component {
-  render() {
-    var settings = {
-      dots: true,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      pauseOnHover: false,
-      nextArrow: <SampleNextArrow />,
-    };
-    return (
-      <div className={s.banner}>
-
-        <Slider {...settings}>
-          <div>
-            <div className={s.background}></div>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-        </Slider>
+      <div className={s.background}>
+      <div className={s.headline_wrapper}>
+      <div className={s.headline}>
+        <h1 className={s.headline_first}>Explore the Marvel Universe</h1>
+        <div className={s.headline_second}>Here you can find any character or comic</div>
+        <div className={s.btn_wrapper}>
+          <NavLink to={'/characters'} className={s.btn_character}>Characters</NavLink>
+          <NavLink to={'/comics'} className={s.btn_comics}>Comics</NavLink>
+        </div>
+       
       </div>
-    );
-  }
+      <div><img className={s.img} src={spider} alt="spider1" /></div>
+      </div>
+    </div>
+      
+    )
 }
 
+export default Banner;

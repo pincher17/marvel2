@@ -8,6 +8,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import CharactersFavorites from './components/Characters/CharactersFavorites';
 import ComicsContainer from './components/Comics/ComicsContainer';
 import Slider from './components/banner/Slider';
+import Banner from './components/banner/Banner';
 
 
 
@@ -17,7 +18,7 @@ function App() {
     <div className="app">
     
     <Header />
-    <Route exact path='/' component={Slider}/>
+    <Route exact path='/' component={Banner}/>
     <Route exact path='/characters' component={CharactersContainer}/>
     <Route exact path='/comics' component={ComicsContainer}/>
     <Route exact path='/favorites' component={CharactersFavorites}/>

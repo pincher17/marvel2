@@ -14,3 +14,7 @@
   color: #242424 !important;
   background-color: #eee;
 }
+
+.MuiPaginationItem-outlinedPrimary{
+  color: blueviolet;
+}

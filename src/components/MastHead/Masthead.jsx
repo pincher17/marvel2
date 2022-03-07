@@ -5,10 +5,10 @@ const Masthead = (props) =>{
   
 return (
   <div className={s.background}>
-  <div className={s.headline}>
-    <span className={s.headline_item}>{props.head}</span>
+    <div className={s.headline}>
+      <span className={s.headline_item}>{props.head}</span>
+    </div>
   </div>
-</div>
   )
 }
 

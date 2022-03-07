@@ -1,5 +1,6 @@
 import React from 'react';
 import Masthead from '../MastHead/Masthead';
+import Pages from '../Pagination/Pagination';
 import s from './Characters.module.css';
 
 const Characters = (props) => {
@@ -16,7 +17,6 @@ const Characters = (props) => {
   let onSort = () => {
     let sort = sortValue.current.value;
     props.sortChange(sort);
-    debugger;
     // props.dispatch(onPostChangeActionCreator(text))
   }
 
@@ -64,14 +64,14 @@ const Characters = (props) => {
           ))}
         </div>
 
-        <div>
+  {/*       <div>
           {allPages.map(p => {
             return (
               <span onClick={() => { props.pageChange(p) }} className={props.page === p && s.selected}>{p}</span>)
 
           })}
-        </div>
-
+        </div> */}
+        <Pages {...props} />
       </div>
     </div>
   )

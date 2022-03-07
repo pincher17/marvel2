@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from "react"
-import slide1 from "./11232313.jpg"
-import slide2 from "./Avengers_Age_of_Ultron_442151.jpg"
+import slide1 from "./wp2903386.webp"
+import slide2 from "./marvels-avengers.jpeg"
 import slide3 from "./d0bd028c7a266934db1807d7ccee8db704e6d518.jpg"
 
 import s from './Slider.module.css';
 
 const Slider = (props) => {
 
-  const urlImage = 'https://s1.1zoom.ru/big7/291/Avengers_Age_of_Ultron_442151.jpg'
 
-  let arr = [urlImage, 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/226320/d0bd028c7a266934db1807d7ccee8db704e6d518.jpg', urlImage]
-
+ 
   const img = [
-    <img key={slide1} src={slide1} />,
+    <img  key={slide1} src={slide1} />,
     <img key={slide2} src={slide2} />,
-    <img key={slide3} src={slide3} />,
-]
+    <img key={slide3} src={slide3} />,]
+
+
 
 const [activeIndex, setActiveIndex] = useState(0);
  
@@ -30,7 +29,7 @@ useEffect(() => {
             // Возвращаем индекс
             return res
         })
-    }, 3000)
+    }, 5000)
     // Выключаем интервал
     return () => clearInterval()
 }, [])

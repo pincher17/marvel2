@@ -1,15 +1,97 @@
-.banner{
-    width: 1200px;
-    margin: 50px auto;
-    padding-bottom: 50px;
-  }
+.background{
+  width: 100%;
+    background: url(./wp2903386.webp);
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  margin-bottom: 80px;
+  display: flex;
+    align-items: center;
+    height: 100%;
+}
 
-  .background{
-    width: 100%;
-      background: url(https://s1.1zoom.ru/big7/291/Avengers_Age_of_Ultron_442151.jpg);
-      height: 40vh;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    margin-bottom: 80px;
-  }
+.headline{
+  padding-top: 75px;
+}
+
+.headline_first{
+ color: white;
+ font-weight: bold;
+ font-size: 50px;
+
+}
+
+
+.headline_second{
+  color: rgb(197, 197, 197);
+  font-weight:400;
+  font-size: 25px;
+  margin-top: -15px;
+  margin-bottom: 80px;
+ }
+
+ .btn_character{
+   background-color: rgb(184, 22, 22);
+   color:rgb(235, 235, 235);
+   font-weight:500;
+   font-size: 20px;
+   margin-right: 45px;
+   padding: 10px 20px 10px 20px;
+   margin-top: 65px;
+   cursor: pointer;
+   text-decoration: none;
+   border: 1px solid rgb(184, 22, 22);
+ }
+
+ .btn_character:hover{
+  background-color: rgba(184, 22, 22, 0);
+  color:rgb(235, 235, 235);
+  font-weight:500;
+  font-size: 20px;
+  border: 1px solid rgb(184, 22, 22);
+  margin-right: 45px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 65px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn_comics:hover{
+  background-color: rgb(184, 22, 22);
+  color:rgb(235, 235, 235);
+  font-weight:500;
+  font-size: 20px;
+  margin-right: 45px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 65px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgb(184, 22, 22);
+}
+
+.btn_comics{
+ background-color: rgba(184, 22, 22, 0);
+ color:rgb(235, 235, 235);
+ font-weight:500;
+ font-size: 20px;
+ border: 1px solid rgb(184, 22, 22);
+ margin-right: 45px;
+ padding: 10px 20px 10px 20px;
+ margin-top: 65px;
+ cursor: pointer;
+ text-decoration: none;
+}
+
+ .img{
+   width: 562px;
+   height: 454px;
+ }
+
+ .headline_wrapper{
+   width: 1200px;
+   display: flex;
+   margin: 0 auto;
+  
+   justify-content: space-between;
+ }

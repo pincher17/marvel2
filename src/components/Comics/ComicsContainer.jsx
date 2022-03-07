@@ -10,19 +10,19 @@ class ComicsContainer extends React.Component {
   componentDidMount() {
 
     axios.get(`https://gateway.marvel.com/v1/public/comics?format=comic&${this.props.search === '' ? '' : `titleStartsWith=${this.props.search}`}&orderBy=${this.props.sort}&limit=8&offset=${(this.props.page - 1) * 8}&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
-      //debugger;
+      
       this.props.setComics(response.data.data.results);
     })
   }
   pageChange = (pageNumber) => {
-    debugger;
+   
     this.props.setPage(pageNumber);
     //this.props.setSort(sort);
-  
+    debugger
     axios.get(`https://gateway.marvel.com/v1/public/comics?format=comic&${this.props.search === '' ? '' : `titleStartsWith=${this.props.search}`}&orderBy=${this.props.sort}&limit=8&offset=${(pageNumber - 1) * 8}&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
-      //debugger;
+     
       this.props.setComics(response.data.data.results);
-      debugger;
+      
     })
   }
 
@@ -31,7 +31,7 @@ class ComicsContainer extends React.Component {
     this.props.setSort(sort);
 
     axios.get(`https://gateway.marvel.com/v1/public/comics?format=comic&${this.props.search === '' ? '' : `nameStartsWith=${this.props.search}`}&orderBy=${sort}&limit=8&offset=0&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510`).then(response => {
-      //debugger;
+     
       this.props.setComics(response.data.data.results);
     })
   }

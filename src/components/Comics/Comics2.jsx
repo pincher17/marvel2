@@ -3,7 +3,8 @@ import Masthead from '../MastHead/Masthead';
 import s from './Comics2.module.css';
 import ReactDOM from 'react-dom';
 import { Pagination } from '@mui/material';
-
+import { makeStyles } from '@material-ui/core';
+import Pages from '../Pagination/Pagination';
 
 const Comics2 = (props) => {
 
@@ -31,6 +32,38 @@ const Comics2 = (props) => {
     // props.dispatch(onPostChangeActionCreator(text))
   }
  
+
+  const useStyles = makeStyles((theme) =>({
+    root: {
+        '& .Mui-selected': {
+          backgroundColor: 'rgb(225 39 39) !important',
+          color:'white',
+          fontWeight: 'bold',
+         },
+         '& .Mui-selected:hover': {
+          backgroundColor: 'rgb(225 39 39)',
+          color:'#d1d1d1',
+          fontWeight: 'bold',
+         },
+         '& ul > li > button:not(.Mui-selected)': {
+          backgroundColor: 'transparent',
+          color:'#4c4c4c',
+          borderColor: '#4c4c4c',
+          fontWeight: 'bold',
+         },
+         '& ul > li > button:not(.Mui-selected):hover': {
+          backgroundColor: 'rgb(225 39 39)',
+          color:'white',
+          fontWeight: 'bold',
+          borderColor: 'rgb(225 39 39)',
+         },
+
+    },
+  }))
+  
+  const classes = useStyles();
+debugger;
+
   return (
     <div>
 
@@ -70,18 +103,7 @@ const Comics2 = (props) => {
             
           ))}
         </div>
-
-        <div className={s.pagination_wrapper}>
-        {/*   {allPages.map(p => {
-            return (
-              <span onClick={() => { props.pageChange(p) }} className={props.page === p && s.selected}>{p}</span>)
-
-          })} */}
-          <div className={s.pagination}>
-          <Pagination count={100} onChange={(_, num) => props.pageChange(num)} defaultPage={props.page} variant="outlined" shape="rounded" color="primary"  />
-          </div>
-        </div>
-
+          <Pages {...props} />
       </div>
     </div>
   )
