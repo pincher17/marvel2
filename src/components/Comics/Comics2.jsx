@@ -5,15 +5,12 @@ import ReactDOM from 'react-dom';
 import { Pagination } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 import Pages from '../Pagination/Pagination';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import SvgIcon from '@mui/material/SvgIcon';
+
 
 const Comics2 = (props) => {
-
-  let allPages = [];
-  for (let i = 1; i <= 10; i++) {
-    allPages.push(i);
-  }
-
-
 
   let sortValue = React.createRef();
 
@@ -35,28 +32,7 @@ const Comics2 = (props) => {
 
   const useStyles = makeStyles((theme) =>({
     root: {
-        '& .Mui-selected': {
-          backgroundColor: 'rgb(225 39 39) !important',
-          color:'white',
-          fontWeight: 'bold',
-         },
-         '& .Mui-selected:hover': {
-          backgroundColor: 'rgb(225 39 39)',
-          color:'#d1d1d1',
-          fontWeight: 'bold',
-         },
-         '& ul > li > button:not(.Mui-selected)': {
-          backgroundColor: 'transparent',
-          color:'#4c4c4c',
-          borderColor: '#4c4c4c',
-          fontWeight: 'bold',
-         },
-         '& ul > li > button:not(.Mui-selected):hover': {
-          backgroundColor: 'rgb(225 39 39)',
-          color:'white',
-          fontWeight: 'bold',
-          borderColor: 'rgb(225 39 39)',
-         },
+        
 
     },
   }))
@@ -85,6 +61,16 @@ debugger;
 
             <div className={s.comics} key={item.id}>
               <div className={s.card_comics}>
+                <div className={s.favorite_bg}></div>
+              {props.favorites.find(i => i.id == item.id)
+                ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
+                   <SvgIcon component={StarRoundedIcon} className={classes.root} fontSize="large" />
+                 </div>
+                : <div onClick={() => { props.setAddFavorite(item.id) }} className={s.btn_favorite_star}>
+                    <SvgIcon component={StarBorderRoundedIcon} className={classes.root} fontSize="large" />
+                  </div>
+              }
+                
               <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + '.jpg' + ')' }}></div>
               {/* <div className={s.card_info}>
 
