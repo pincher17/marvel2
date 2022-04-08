@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Masthead from '../MastHead/Masthead';
 import s from './Pagination.module.css';
 import ReactDOM from 'react-dom';
 import { Pagination } from '@mui/material';
@@ -45,7 +44,7 @@ const Pages = (props) => {
           <div className={s.pagination}>
                   <Pagination count={100} onChange={(_, num) => props.pageChange(num)}
                     defaultPage={props.page} variant="outlined" shape="rounded" 
-                    className={classes.root}  />
+                    className={classes.root} page={props.page}  />
           </div>
         </div>
 

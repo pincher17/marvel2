@@ -19,10 +19,10 @@ export default function SimpleSlider() {
   useEffect(() => {
     let apiUrl = "https://gateway.marvel.com/v1/public/characters?limit=12&ts=1&apikey=bee04bdf1525b71dabcfedee5c7ad617&hash=9c56fc53e014b8e7f336c28a76203510"
     axios.get(apiUrl).then(response => {
-      /* let result = response.data.data.results[0].name; */
+      
 
       setItems(response.data.data.results);
-      /* console.log(response.data.data.results); */
+     
     });
   }, [])
   return (

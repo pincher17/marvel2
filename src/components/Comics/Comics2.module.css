@@ -120,6 +120,8 @@
    height: 0;
    border-top: 65px solid rgb(212, 21, 21); 
    border-left: 65px solid transparent;
- 
- 
  }
+
+ .spinner_wrapper{
+  margin: 200px auto;
+}

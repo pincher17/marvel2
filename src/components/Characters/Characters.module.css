@@ -16,34 +16,35 @@
   .card_character{
     width: 250px;
     height: 370px;
-    border-radius: 25px;
+    /* border-radius: 0; */
     box-shadow: 0px 6px 12px -5px rgba(34, 60, 80, 0.6);
     margin-bottom: 60px;
     background-color: #242424;
     margin: 25px;
+    position: relative;
   }
   
   .card_img{
     width: 100%;
       /* background: url(./spider-man.jpg); */
-      height: 65%;
+      height: 80%;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-    border-radius: 25px 25px 25px 25px;
+    /* border-radius: 0px 0px 25px 25px; */
     border-bottom: 2px rgb(218, 17, 17) solid;
   }
   
   .card_info{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   
   .card_name{
     color: #eeeeee;
     font-weight: bold;
     font-size: 18px;
-    margin-top: 15px;
+    margin-top: 22px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -96,4 +97,24 @@
   .selected{
     font-weight:bold;
     cursor: pointer;
+  }
+
+  .btn_favorite_star{
+    position: absolute;
+    right: 0;
+    color: rgb(223, 223, 57);
+    cursor: pointer;
+  }
+ 
+  .favorite_bg{
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 65px solid rgb(212, 21, 21); 
+    border-left: 65px solid transparent;
+  }
+
+  .spinner_wrapper{
+    margin: 200px auto;
   }
