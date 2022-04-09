@@ -5,7 +5,6 @@ import s from './Characters.module.css';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
-import { makeStyles } from '@material-ui/core';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
@@ -16,17 +15,15 @@ const Characters = (props) => {
 
   let onSort = () => {
     let sort = sortValue.current.value;
-    props.sortChange(sort);
-    
+    props.sortChangeThunk(props.search, sort)
   }
 
   let searchValue = React.createRef();
   let onSearch = () => {
     let search = searchValue.current.value;
-    props.search(search);
-  
+    props.searchThunk(search, props.sort);
   }
-debugger;
+
   return (
 
     <div>
@@ -78,14 +75,6 @@ debugger;
           ))}
           
         </div>
-
-  {/*       <div>
-          {allPages.map(p => {
-            return (
-              <span onClick={() => { props.pageChange(p) }} className={props.page === p && s.selected}>{p}</span>)
-
-          })}
-        </div> */}
         <Pages {...props} />
       </div>
     </div>

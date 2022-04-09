@@ -1,3 +1,6 @@
+import { comicsApi } from "../api/api";
+import { setFetching } from "./spinner-reducer";
+
 const SET_COMICS = "SET_COMICS";
 const SET_PAGE_COMICS = "SET_PAGE_COMICS";
 const SET_SORT_COMICS = "SET_SORT_COMICS";
@@ -79,5 +82,41 @@ export let deleteFavorite = (favoriteId) => ({
     type: DELETE_FAVORITES_COMICS,
     favoriteId: favoriteId,
 });
+
+export const getComicsThunk = (search, sort, page = 1) =>{
+    return (dispatch) => {
+        dispatch(setPage(page));
+        debugger;
+        dispatch(setFetching(true))
+        comicsApi.getComics(search, sort, page).then(response =>{
+            dispatch(setComics(response.data.results))
+            dispatch(setFetching(false))
+    })
+    }
+}
+
+export const sortChangeComicsThunk = (search, sort) =>{
+    return (dispatch) => {
+        dispatch(setPage(1));
+        dispatch(setSort(sort));
+        dispatch(setFetching(true))
+        comicsApi.getComics(search, sort).then(response => {
+            dispatch(setComics(response.data.results))
+            dispatch(setFetching(false))
+        })
+    }
+}
+
+export const searchComicsThunk = (search, sort) =>{
+    return (dispatch) => {
+        dispatch(setPage(1));
+        dispatch(setSearch(search));
+        dispatch(setFetching(true))
+        comicsApi.getComics(search, sort).then(response => {
+            dispatch(setComics(response.data.results))
+            dispatch(setFetching(false))
+        })
+    }
+}
 
 export default comicsReducer;

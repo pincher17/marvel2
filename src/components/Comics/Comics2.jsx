@@ -15,13 +15,13 @@ const Comics2 = (props) => {
 
   let onSort = () => {
     let sort = sortValue.current.value;
-    props.sortChange(sort);
+    props.sortChangeComicsThunk(props.search, sort);
   }
 
   let searchValue = React.createRef();
   let onSearch = () => {
     let search = searchValue.current.value;
-    props.search(search);
+    props.searchComicsThunk(search, props.sort);
   }
  
 

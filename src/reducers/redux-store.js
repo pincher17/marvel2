@@ -1,7 +1,5 @@
-import {
-    combineReducers,
-    createStore
-} from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
 import charactersReducer from "./characters-reducer";
 import comicsReducer from "./comics-reducer";
 import mastHeadReducer from "./mastHead-reducer";
@@ -16,6 +14,6 @@ const reducers = combineReducers({
     fetching: spinnerReducer,
 })
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;

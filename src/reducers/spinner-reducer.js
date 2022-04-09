@@ -18,7 +18,7 @@ function spinnerReducer(state = defaultState, action){
     }
 }
 
-export let setFetchingAC = (fetching) => ({type: SET_FETCHING, fetching: fetching})
+export let setFetching = (fetching) => ({type: SET_FETCHING, fetching: fetching})
 
 
 export default spinnerReducer;

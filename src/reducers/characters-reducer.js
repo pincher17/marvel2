@@ -1,3 +1,6 @@
+import { charactersApi } from "../api/api";
+import { setFetching } from "./spinner-reducer";
+
 const SET_CHARACTERS = "SET_CHARACTERS";
 const SET_PAGE = "SET_PAGE";
 const SET_SORT = "SET_SORT";
@@ -55,29 +58,65 @@ function charactersReducer(state = defaultState, action) {
     }
 }
 
-export let setCharactersActionCreator = (characters) => ({
+export let setCharacters = (characters) => ({
     type: SET_CHARACTERS,
     characters: characters,
 });
-export let setPageActionCreator = (page) => ({
+export let setPage = (page) => ({
     type: SET_PAGE,
     page: page
 });
-export let setSortActionCreator = (sort) => ({
+export let setSort = (sort) => ({
     type: SET_SORT,
     sort: sort
 });
-export let setSearchActionCreator = (search) => ({
+export let setSearch = (search) => ({
     type: SET_SEARCH,
     search: search,
 });
-export let setAddFavoriteActionCreator = (favoriteId) => ({
+export let setAddFavorite = (favoriteId) => ({
     type: SET_ADD_FAVORITES,
     favoriteId: favoriteId,
 });
-export let deleteFavoriteActionCreator = (favoriteId) => ({
+export let deleteFavorite = (favoriteId) => ({
     type: DELETE_FAVORITES,
     favoriteId: favoriteId,
 });
+
+export const getCharactersThunk = (search, sort, page = 1) =>{
+    return (dispatch) => {
+        dispatch(setPage(page));
+        debugger;
+        dispatch(setFetching(true))
+        charactersApi.getCharacters(search, sort, page).then(response =>{
+            dispatch(setCharacters(response.data.results))
+            dispatch(setFetching(false))
+    })
+    }
+}
+
+export const sortChangeThunk = (search, sort) =>{
+    return (dispatch) => {
+        dispatch(setPage(1));
+        dispatch(setSort(sort));
+        dispatch(setFetching(true))
+        charactersApi.getCharacters(search, sort).then(response => {
+            dispatch(setCharacters(response.data.results))
+            dispatch(setFetching(false))
+        })
+    }
+}
+
+export const searchThunk = (search, sort) =>{
+    return (dispatch) => {
+        dispatch(setPage(1));
+        dispatch(setSearch(search));
+        dispatch(setFetching(true))
+        charactersApi.getCharacters(search, sort).then(response => {
+            dispatch(setCharacters(response.data.results))
+            dispatch(setFetching(false))
+        })
+    }
+}
 
 export default charactersReducer;

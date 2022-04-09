@@ -1,6 +1,5 @@
 import * as React from 'react';
 import s from './Pagination.module.css';
-import ReactDOM from 'react-dom';
 import { Pagination } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 
@@ -42,7 +41,7 @@ const Pages = (props) => {
    
         <div className={s.pagination_wrapper}>
           <div className={s.pagination}>
-                  <Pagination count={100} onChange={(_, num) => props.pageChange(num)}
+                  <Pagination count={100} onChange={(_, num) => props.thunk(props.search, props.sort, num)}
                     defaultPage={props.page} variant="outlined" shape="rounded" 
                     className={classes.root} page={props.page}  />
           </div>

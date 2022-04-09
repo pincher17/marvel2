@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteFavoriteActionCreator } from '../../reducers/characters-reducer';
+import { deleteFavorite } from '../../reducers/characters-reducer';
 import s from './Characters.module.css';
 
 const CharactersFavorites = (props) => {
@@ -45,4 +45,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { deleteFavoriteActionCreator })(CharactersFavorites);
+export default connect(mapStateToProps, { deleteFavorite })(CharactersFavorites);
