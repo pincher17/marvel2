@@ -1,5 +1,5 @@
 .comics_page{
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 50px;
   }
@@ -8,9 +8,9 @@
     display: flex;
     /*justify-content: space-between;*/
     height: 100%;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     flex-wrap: wrap;
-   
+    flex-direction: row;
   }
   
   .comics{
@@ -31,6 +31,12 @@
     box-shadow: 0px 6px 12px -5px rgba(34, 60, 80, 0.6);
     margin-bottom: 15px;
     position: relative;
+    transition: top ease 0.2s;
+    
+  }
+
+  .card_comics:hover{
+    top: -15px;
   }
 
   .card_img{
@@ -125,3 +131,49 @@
  .spinner_wrapper{
   margin: 200px auto;
 }
+
+
+@media (max-width: 1200px){
+  .comics_page{
+    max-width: 970px;
+  }
+  .card_comics{
+    margin: 32px;
+  }
+}
+
+@media (max-width: 992px){
+  .comics_page{
+    max-width: 750px;
+  }
+  .comics{
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767px){
+  .comics_page{
+    max-width: none;
+  }
+  .comics{
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 604px){
+  .card_comics{
+    margin: 0;
+  }
+}
+
+@media (max-width: 549px){
+  .comics_page{
+    max-width: none;
+  }
+
+  .comics{
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+

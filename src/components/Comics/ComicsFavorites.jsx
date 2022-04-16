@@ -5,7 +5,7 @@ import { deleteFavorite } from '../../reducers/comics-reducer';
 import s from './Comics2.module.css';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
-
+import { NavLink } from "react-router-dom";
 
 const ComicsFavorites = (props) => {
 
@@ -26,11 +26,12 @@ debugger;
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
               
-                
+              <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
               <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + '.jpg' + ')' }}></div>
               <div className={s.title}>
               <span className={s.card_title}>{item.title}</span>
               </div>
+              </NavLink>
               </div>
             </div>
             

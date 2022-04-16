@@ -10,18 +10,29 @@ import ComicsContainer from './components/Comics/ComicsContainer';
 import Slider from './components/banner/Slider';
 import Banner from './components/banner/Banner';
 import Favorites from './components/favorites/Favorites';
+import Characters2 from './components/Characters/Characters2';
+import CharacterInfo from './CharacterInfo/CharacterInfo';
+import ComicInfo from './ComicInfo/ComicInfo';
+import BurgerMenu from './components/Header/BurgerMenu/BurgerMenu';
+import { useState } from 'react';
 
 
 
 function App() {
+
+  
+
   return (
     <BrowserRouter>
     <div className="app">
     
     <Header />
+    
     <Route exact path='/' component={Banner}/>
-    <Route exact path='/characters' component={CharactersContainer}/>
+    <Route exact path='/characters' component={Characters2}/>
+    <Route exact path='/characters/info/:characterId?' component={CharacterInfo}/>
     <Route exact path='/comics' component={ComicsContainer}/>
+    <Route exact path='/comic/info/:comicId?' component={ComicInfo}/>
     <Route exact path='/favorites' component={Favorites}/>
 
     </div>

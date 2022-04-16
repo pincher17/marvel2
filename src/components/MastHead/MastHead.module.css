@@ -13,7 +13,6 @@
     align-items: center;
     height: 100%;
     
-   
   }
   
   .headline_item{
@@ -24,5 +23,15 @@
    margin-right: auto;
    background-color: rgb(212, 21, 21);
    padding: 10px;
+  }
+
+  @media (max-width: 767px){
+    .headline_item{
+      font-size: 2rem;
+    }
+    .background{
+      height: 30vh;
+      margin-bottom: 40px;
+    }
   }
   

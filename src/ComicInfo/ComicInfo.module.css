@@ -1,0 +1,58 @@
+.wrapper_all{
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 100%;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper_info_text{
+  width: 820px;
+}
+
+.wrapper_title{
+  display: flex;
+}
+
+.name{
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.description{
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.info_character{
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.comics_wrapper{
+  display: flex;
+  margin-top: 15px;
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+}
+
+.comic{
+  margin-right: 45px;
+  width: 100%;
+}
+
+.head_comics{
+ 
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.btn_favorite_star{
+  color: rgb(223, 223, 57);
+  cursor: pointer;
+  font-size: 50px;
+}

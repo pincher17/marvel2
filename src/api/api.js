@@ -15,6 +15,16 @@ export const charactersApi = {
             return response.data;
         })
     },
+    getCharacterInfo(id){
+        return instance.get(`characters/${id}`).then(response =>{
+            return response.data;
+        })
+    },
+    getCharacterInfoComics(id){
+        return instance.get(`characters/${id}/comics?format=comic&limit=3&offset=0`).then(response =>{
+            return response.data;
+        })
+    },
 } 
 
 export const comicsApi = {
@@ -25,4 +35,12 @@ export const comicsApi = {
         })
     },
 
+    getComicInfo(id){
+        return instance.get(`comics/${id}`)
+        .then(response =>{
+            return response.data;
+        })
+    },
+
 } 
+
