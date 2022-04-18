@@ -8,7 +8,8 @@ import SvgIcon from '@mui/material/SvgIcon';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { connect } from 'react-redux';
-import { getCharactersThunk, setAddFavorite, deleteFavorite, sortChangeThunk, searchThunk } from '../../reducers/characters-reducer';
+import { getCharactersThunk, setAddFavorite, deleteFavorite, 
+          sortChangeThunk, searchThunk, setTotalPagesCharacters } from '../../reducers/characters-reducer';
 import { NavLink } from 'react-router-dom';
 
 
@@ -22,7 +23,7 @@ const Characters2 = (props) => {
     
   }, []) 
 
-
+console.log(props.favorites)
   
   let sortValue = React.createRef();
 
@@ -91,7 +92,8 @@ const Characters2 = (props) => {
           ))}
           
         </div>
-        <Pages thunk={props.getCharactersThunk} {...props} />
+        <Pages thunk={props.getCharactersThunk} total={props.totalCharacters} 
+        setTotalPages={props.setTotalPagesCharacters} {...props} />
       </div>
     </div>
   )
@@ -106,11 +108,14 @@ let mapStateToProps = (state) => {
     sort: state.characters.sort,
     search: state.characters.search,
     favorites: state.characters.favorites,
-    fetching: state.fetching.isFetching
+    fetching: state.fetching.isFetching,
+    totalPages: state.characters.totalPages,
+    totalCharacters: state.characters.totalCharacters,
+    pageSize: state.characters.pageSize
   }
 
 }
 
 export default connect(mapStateToProps, {getCharactersThunk, 
   setAddFavorite, deleteFavorite, 
-  sortChangeThunk, searchThunk})(Characters2);
+  sortChangeThunk, searchThunk, setTotalPagesCharacters})(Characters2);

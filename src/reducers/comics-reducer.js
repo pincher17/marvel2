@@ -7,6 +7,9 @@ const SET_SORT_COMICS = "SET_SORT_COMICS";
 const SET_SEARCH_COMICS = "SET_SEARCH_COMICS";
 const SET_ADD_FAVORITES_COMICS = "SET_ADD_FAVORITES_COMICS";
 const DELETE_FAVORITES_COMICS = "DELETE_FAVORITES_COMICS";
+const SET_TOTAL_COMICS = 'SET_TOTAL_COMICS'
+const SET_TOTAL_PAGES_COMICS= 'SET_TOTAL_PAGES_COMICS'
+
 
 const defaultState = {
     items: [],
@@ -15,6 +18,9 @@ const defaultState = {
     sort: "title",
     search: "",
     favorites: [],
+    totalComics: 0,
+    pageSize: 8,
+    totalPages: 0,
 };
 
 function comicsReducer(state = defaultState, action) {
@@ -47,6 +53,16 @@ function comicsReducer(state = defaultState, action) {
                     state.items.find((item) => item.id == action.favoriteId),
                 ],
             };
+        case SET_TOTAL_COMICS:
+            return {
+                ...state,
+                totalComics: action.totalComics,
+                };
+        case SET_TOTAL_PAGES_COMICS:
+            return {
+                ...state,
+                totalPages: action.totalPages,
+                };
         case DELETE_FAVORITES_COMICS:
             //let deleteFavorite = state.favorites.indexOf(state.items.find(item => item.id == action.favoriteId))
             return {
@@ -74,6 +90,14 @@ export let setSearch = (search) => ({
     type: SET_SEARCH_COMICS,
     search: search,
 });
+export let setTotalComics = (totalComics) => ({
+    type: SET_TOTAL_COMICS,
+    totalComics
+});
+export let setTotalPagesComics = (totalPages) => ({
+    type: SET_TOTAL_PAGES_COMICS,
+    totalPages
+});
 export let setAddFavorite = (favoriteId) => ({
     type: SET_ADD_FAVORITES_COMICS,
     favoriteId: favoriteId,
@@ -90,6 +114,7 @@ export const getComicsThunk = (search, sort, page = 1) =>{
         dispatch(setFetching(true))
         comicsApi.getComics(search, sort, page).then(response =>{
             dispatch(setComics(response.data.results))
+            dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))
     })
     }
@@ -102,6 +127,7 @@ export const sortChangeComicsThunk = (search, sort) =>{
         dispatch(setFetching(true))
         comicsApi.getComics(search, sort).then(response => {
             dispatch(setComics(response.data.results))
+            dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))
         })
     }
@@ -114,6 +140,7 @@ export const searchComicsThunk = (search, sort) =>{
         dispatch(setFetching(true))
         comicsApi.getComics(search, sort).then(response => {
             dispatch(setComics(response.data.results))
+            dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))
         })
     }

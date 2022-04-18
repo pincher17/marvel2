@@ -7,7 +7,7 @@
 
 .wrapper{
   display: flex;
-  justify-content: space-between;
+  
 }
 
 .wrapper_img{
@@ -16,7 +16,7 @@
 
 .wrapper_info_text{
   max-width: 820px;
-  margin: 15px;
+  margin-left: 15px;
 }
 
 .wrapper_name{
@@ -87,5 +87,8 @@
   }
   .wrapper{
     display: block;
+  }
+  .wrapper_info_text{
+    max-width: none;
   }
 }

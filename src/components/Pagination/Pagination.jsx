@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core';
 
 const Pages = (props) => {
 
+  let totalPages = Math.ceil(props.total/props.pageSize)
+  props.setTotalPages(totalPages)
 
   const useStyles = makeStyles((theme) =>({
     root: {
@@ -41,7 +43,7 @@ const Pages = (props) => {
    
         <div className={s.pagination_wrapper}>
           <div className={s.pagination}>
-                  <Pagination count={100} onChange={(_, num) => props.thunk(props.search, props.sort, num)}
+                  <Pagination count={props.totalPages} onChange={(_, num) => props.thunk(props.search, props.sort, num)}
                     defaultPage={props.page} variant="outlined" shape="rounded" 
                     className={classes.root} page={props.page}  />
           </div>

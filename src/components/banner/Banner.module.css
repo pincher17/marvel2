@@ -1,15 +1,21 @@
 .background{
   width: 100%;
     background: url(./wp2903386.webp);
-    height: 60vh;
+    height: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   margin-bottom: 80px;
-  display: flex;
+  /* display: flex; */
     align-items: center;
-    height: 100%;
+    overflow: hidden;
 }
+
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 
 .headline{
   padding-top: 75px;
@@ -30,6 +36,11 @@
   margin-top: -15px;
   margin-bottom: 80px;
  }
+
+ .btn_wrapper{
+  margin-top: -175px;
+  margin-bottom: 200px;
+}
 
  .btn_character{
    background-color: rgb(184, 22, 22);
@@ -83,9 +94,11 @@
  text-decoration: none;
 }
 
+
+
  .img{
-   width: 562px;
-   height: 454px;
+   width: 100%;
+   height: auto;
  }
 
  .headline_wrapper{
@@ -100,13 +113,22 @@
   .headline_wrapper{
     max-width: 970px;
   }
+  .wrapper{
+    max-width: 970px;
+  }
+  .btn_wrapper{
+    margin-top: -50px;
+    margin-bottom: 80px;
+  }
 }
 
 @media (max-width: 992px){
   .headline_wrapper{
     max-width: 750px;
   }
-
+  .wrapper{
+    max-width: 750px;
+  }
 }
 
 @media (max-width: 767px){
@@ -114,4 +136,23 @@
     max-width: none;
     display: block;
   }
+  .wrapper{
+    max-width: none;
+    padding-left: 15px;
+  }
+  .headline_second{
+    margin-bottom: 0;
+  }
+  .headline{
+    padding-top: 30px;
+  }
+  .background{
+    height: auto;
+    margin-bottom: 0;
+  }
+  .btn_wrapper{
+    margin-top: 35px;
+    margin-bottom: 50px;
+  }
+
 }

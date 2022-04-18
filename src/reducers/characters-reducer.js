@@ -7,6 +7,8 @@ const SET_SORT = "SET_SORT";
 const SET_SEARCH = "SET_SEARCH";
 const SET_ADD_FAVORITES = "SET_ADD_FAVORITES";
 const DELETE_FAVORITES = "DELETE_FAVORITES";
+const SET_TOTAL_CHARACTERS = 'SET_TOTAL_CHARACTERS'
+const SET_TOTAL_PAGES_CHARACTERS= 'SET_TOTAL_PAGES_CHARACTERS'
 
 const defaultState = {
     items: [],
@@ -15,6 +17,9 @@ const defaultState = {
     sort: "name",
     search: "",
     favorites: [],
+    totalCharacters: 0,
+    pageSize: 8,
+    totalPages: 0,
 };
 
 function charactersReducer(state = defaultState, action) {
@@ -39,6 +44,16 @@ function charactersReducer(state = defaultState, action) {
                 ...state,
                 search: action.search,
             };
+        case SET_TOTAL_CHARACTERS:
+            return {
+                ...state,
+                totalCharacters: action.totalCharacters,
+                };
+        case SET_TOTAL_PAGES_CHARACTERS:
+            return {
+                ...state,
+                totalPages: action.totalPages,
+                };
         case SET_ADD_FAVORITES:
             return {
                 ...state,
@@ -74,6 +89,14 @@ export let setSearch = (search) => ({
     type: SET_SEARCH,
     search: search,
 });
+export let setTotalCharacters = (totalCharacters) => ({
+    type: SET_TOTAL_CHARACTERS,
+    totalCharacters
+});
+export let setTotalPagesCharacters = (totalPages) => ({
+    type: SET_TOTAL_PAGES_CHARACTERS,
+    totalPages
+});
 export let setAddFavorite = (favoriteId) => ({
     type: SET_ADD_FAVORITES,
     favoriteId: favoriteId,
@@ -86,10 +109,11 @@ export let deleteFavorite = (favoriteId) => ({
 export const getCharactersThunk = (search, sort, page = 1) =>{
     return (dispatch) => {
         dispatch(setPage(page));
-        debugger;
         dispatch(setFetching(true))
-        charactersApi.getCharacters(search, sort, page).then(response =>{
+        charactersApi.getCharacters(search, sort, page)
+        .then(response =>{
             dispatch(setCharacters(response.data.results))
+            dispatch(setTotalCharacters(response.data.total))
             dispatch(setFetching(false))
     })
     }
@@ -102,6 +126,7 @@ export const sortChangeThunk = (search, sort) =>{
         dispatch(setFetching(true))
         charactersApi.getCharacters(search, sort).then(response => {
             dispatch(setCharacters(response.data.results))
+            dispatch(setTotalCharacters(response.data.total))
             dispatch(setFetching(false))
         })
     }
@@ -114,6 +139,7 @@ export const searchThunk = (search, sort) =>{
         dispatch(setFetching(true))
         charactersApi.getCharacters(search, sort).then(response => {
             dispatch(setCharacters(response.data.results))
+            dispatch(setTotalCharacters(response.data.total))
             dispatch(setFetching(false))
         })
     }

@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Comics2 from './Comics2.jsx';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { getComicsThunk, sortChangeComicsThunk, searchComicsThunk, setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
+import { getComicsThunk, sortChangeComicsThunk, searchComicsThunk, 
+          setAddFavorite, deleteFavorite, setTotalPagesComics } from '../../reducers/comics-reducer';
 
 
 class ComicsContainer extends React.Component {
@@ -16,7 +17,8 @@ class ComicsContainer extends React.Component {
   render() {
 
     return (
-      <Comics2 thunk={this.props.getComicsThunk} {...this.props} />
+      <Comics2 thunk={this.props.getComicsThunk} total={this.props.totalComics} 
+      setTotalPages={this.props.setTotalPagesComics} {...this.props} />
     )
   }
 }
@@ -30,6 +32,9 @@ let mapStateToProps = (state) => {
     search: state.comics.search,
     favorites: state.comics.favorites,
     fetching: state.fetching.isFetching,
+    totalPages: state.comics.totalPages,
+    totalComics: state.comics.totalComics,
+    pageSize: state.comics.pageSize
   }
 
 }
@@ -38,5 +43,5 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {getComicsThunk, sortChangeComicsThunk, 
-  searchComicsThunk, setAddFavorite, deleteFavorite})(withRouter(ComicsContainer));
+  searchComicsThunk, setAddFavorite, deleteFavorite, setTotalPagesComics})(withRouter(ComicsContainer));
 

@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CharactersContainer from './components/Characters/CharactersContainer';
 import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import Comics from './components/Comics/Comics.jsx';
 import {BrowserRouter, Route} from 'react-router-dom'
 import CharactersFavorites from './components/Characters/CharactersFavorites';
@@ -34,7 +35,7 @@ function App() {
     <Route exact path='/comics' component={ComicsContainer}/>
     <Route exact path='/comic/info/:comicId?' component={ComicInfo}/>
     <Route exact path='/favorites' component={Favorites}/>
-
+    <Footer />
     </div>
     </BrowserRouter>
   );

@@ -21,16 +21,16 @@ const CharacterInfo = (props) => {
   let { characterId } = useParams();
   const info = useSelector(state => state.characterInfo.character);
   console.log(info)
-
+  /* console.log(props.favorites) */
   useEffect(() => {
-    debugger;
+    
     props.getCharacterInfoThunk(characterId);
   }, []);
 
   useEffect(() => {
     props.getCharacterInfoComicsThunk(characterId);
   }, []);
-  debugger;
+  
   return (
     <div className={s.wrapper_all}>
       {props.characterInfo.map((item) => (
