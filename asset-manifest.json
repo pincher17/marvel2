@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/marvel2/static/css/main.f3a98177.chunk.css",
-    "main.js": "/marvel2/static/js/main.3dd382fc.chunk.js",
-    "main.js.map": "/marvel2/static/js/main.3dd382fc.chunk.js.map",
-    "runtime-main.js": "/marvel2/static/js/runtime-main.eb7657d5.js",
-    "runtime-main.js.map": "/marvel2/static/js/runtime-main.eb7657d5.js.map",
+    "main.css": "/marvel2/static/css/main.28b0d0f4.chunk.css",
+    "main.js": "/marvel2/static/js/main.c86e6883.chunk.js",
+    "main.js.map": "/marvel2/static/js/main.c86e6883.chunk.js.map",
+    "runtime-main.js": "/marvel2/static/js/runtime-main.79fd323b.js",
+    "runtime-main.js.map": "/marvel2/static/js/runtime-main.79fd323b.js.map",
     "static/css/2.a3836dfa.chunk.css": "/marvel2/static/css/2.a3836dfa.chunk.css",
-    "static/js/2.b241177a.chunk.js": "/marvel2/static/js/2.b241177a.chunk.js",
-    "static/js/2.b241177a.chunk.js.map": "/marvel2/static/js/2.b241177a.chunk.js.map",
-    "static/js/3.2eb308aa.chunk.js": "/marvel2/static/js/3.2eb308aa.chunk.js",
-    "static/js/3.2eb308aa.chunk.js.map": "/marvel2/static/js/3.2eb308aa.chunk.js.map",
+    "static/js/2.42aa22c9.chunk.js": "/marvel2/static/js/2.42aa22c9.chunk.js",
+    "static/js/2.42aa22c9.chunk.js.map": "/marvel2/static/js/2.42aa22c9.chunk.js.map",
+    "static/js/3.bde5fc53.chunk.js": "/marvel2/static/js/3.bde5fc53.chunk.js",
+    "static/js/3.bde5fc53.chunk.js.map": "/marvel2/static/js/3.bde5fc53.chunk.js.map",
     "index.html": "/marvel2/index.html",
     "static/css/2.a3836dfa.chunk.css.map": "/marvel2/static/css/2.a3836dfa.chunk.css.map",
-    "static/css/main.f3a98177.chunk.css.map": "/marvel2/static/css/main.f3a98177.chunk.css.map",
-    "static/js/2.b241177a.chunk.js.LICENSE.txt": "/marvel2/static/js/2.b241177a.chunk.js.LICENSE.txt",
+    "static/css/main.28b0d0f4.chunk.css.map": "/marvel2/static/css/main.28b0d0f4.chunk.css.map",
+    "static/js/2.42aa22c9.chunk.js.LICENSE.txt": "/marvel2/static/js/2.42aa22c9.chunk.js.LICENSE.txt",
     "static/media/Logo2.fa9d55f0.png": "/marvel2/static/media/Logo2.fa9d55f0.png",
     "static/media/d0bd028c7a266934db1807d7ccee8db704e6d518.8cc1185f.jpg": "/marvel2/static/media/d0bd028c7a266934db1807d7ccee8db704e6d518.8cc1185f.jpg",
     "static/media/MastHead.module.css": "/marvel2/static/media/marvel-bg10.320ec3e8.png",
@@ -23,10 +23,10 @@
     "static/media/Banner.module.css": "/marvel2/static/media/wp2903386.207550e4.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.eb7657d5.js",
+    "static/js/runtime-main.79fd323b.js",
     "static/css/2.a3836dfa.chunk.css",
-    "static/js/2.b241177a.chunk.js",
-    "static/css/main.f3a98177.chunk.css",
-    "static/js/main.3dd382fc.chunk.js"
+    "static/js/2.42aa22c9.chunk.js",
+    "static/css/main.28b0d0f4.chunk.css",
+    "static/js/main.c86e6883.chunk.js"
   ]
 }
