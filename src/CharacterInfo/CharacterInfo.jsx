@@ -20,7 +20,7 @@ const CharacterInfo = (props) => {
  
   let { characterId } = useParams();
   const info = useSelector(state => state.characterInfo.character);
-  console.log(info)
+  console.log(props.characterInfo)
   /* console.log(props.favorites) */
   useEffect(() => {
     
@@ -48,7 +48,7 @@ const CharacterInfo = (props) => {
                 ? (<div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="inherit" />
                  </div>)
-                : (<div onClick={() => { props.setAddFavorite(item.id) }} className={s.btn_favorite_star}>
+                : (<div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="inherit" />
                   </div>)
               }

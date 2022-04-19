@@ -71,7 +71,7 @@ const Comics2 = (props) => {
                 ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
-                : <div onClick={() => { props.setAddFavorite(item.id) }} className={s.btn_favorite_star}>
+                : <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="large" />
                   </div>
               }

@@ -48,11 +48,13 @@ function comicsReducer(state = defaultState, action) {
         case SET_ADD_FAVORITES_COMICS:
             return {
                 ...state,
-                favorites: [
-                    ...state.favorites,
-                    state.items.find((item) => item.id == action.favoriteId),
-                ],
+                favorites: [...state.favorites, action.favoriteId]
             };
+        case DELETE_FAVORITES_COMICS:
+            return {
+                ...state,
+                favorites: state.favorites.filter((i) => i.id !== action.favoriteId),
+                };    
         case SET_TOTAL_COMICS:
             return {
                 ...state,
@@ -63,12 +65,6 @@ function comicsReducer(state = defaultState, action) {
                 ...state,
                 totalPages: action.totalPages,
                 };
-        case DELETE_FAVORITES_COMICS:
-            //let deleteFavorite = state.favorites.indexOf(state.items.find(item => item.id == action.favoriteId))
-            return {
-                ...state,
-                favorites: state.favorites.filter((i) => i.id !== action.favoriteId),
-            };
         default:
             return state;
     }

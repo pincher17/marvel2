@@ -15,15 +15,12 @@ import { NavLink } from 'react-router-dom';
 
 const Characters2 = (props) => {
 
-  
-
   useEffect(() => {
     
     props.getCharactersThunk(props.search, props.sort, props.page)
     
   }, []) 
 
-console.log(props.favorites)
   
   let sortValue = React.createRef();
 
@@ -75,7 +72,7 @@ console.log(props.favorites)
                 ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
-                : <div onClick={() => { props.setAddFavorite(item.id) }} className={s.btn_favorite_star}>
+                : <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="large" />
                   </div>
               }

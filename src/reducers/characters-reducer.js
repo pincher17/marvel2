@@ -57,13 +57,9 @@ function charactersReducer(state = defaultState, action) {
         case SET_ADD_FAVORITES:
             return {
                 ...state,
-                favorites: [
-                    ...state.favorites,
-                    state.items.find((item) => item.id == action.favoriteId),
-                ],
+                favorites: [...state.favorites, action.favoriteId]
             };
         case DELETE_FAVORITES:
-            //let deleteFavorite = state.favorites.indexOf(state.items.find(item => item.id == action.favoriteId))
             return {
                 ...state,
                 favorites: state.favorites.filter((i) => i.id !== action.favoriteId),
