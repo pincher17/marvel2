@@ -1,7 +1,7 @@
 .app{
   margin: 0 auto;
-  background-color:rgb(231,235,240)
-
+  background-color:rgb(231,235,240);
+  
 }
 
 
@@ -17,4 +17,11 @@
 
 .MuiPaginationItem-outlinedPrimary{
   color: blueviolet;
+}
+
+@media (max-width: 767px){
+  .app{
+    overflow-x: hidden;
+  }
+
 }

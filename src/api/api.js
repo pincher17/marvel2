@@ -10,8 +10,13 @@ const instance = axios.create({
 })
 
 export const charactersApi = {
-    getCharacters(search, sort, page = 1){
-        return instance.get(`characters?${search === '' ? '' : `nameStartsWith=${search}`}&orderBy=${sort}&limit=8&offset=${(page - 1) * 8}`).then(response =>{
+    getCharacters(search, sort, pageSize, page = 1){
+        return instance.get(`characters?${search === '' ? '' : `nameStartsWith=${search}`}&orderBy=${sort}&limit=8&offset=${(page - 1) * pageSize}`).then(response =>{
+            return response.data;
+        })
+    },
+    getCharactersHomePage(sliderSize){
+        return instance.get(`characters?nameStartsWith=a&orderBy=-modified&limit=${sliderSize}&offset=10`).then(response =>{
             return response.data;
         })
     },

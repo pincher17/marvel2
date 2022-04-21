@@ -9,9 +9,11 @@ const SET_ADD_FAVORITES = "SET_ADD_FAVORITES";
 const DELETE_FAVORITES = "DELETE_FAVORITES";
 const SET_TOTAL_CHARACTERS = 'SET_TOTAL_CHARACTERS'
 const SET_TOTAL_PAGES_CHARACTERS= 'SET_TOTAL_PAGES_CHARACTERS'
+const SET_CHARACTERS_HOME_PAGE = 'SET_CHARACTERS_HOME_PAGE'
 
 const defaultState = {
     items: [],
+    charactersHomePage: [],
     offset: 0,
     page: 1,
     sort: "name",
@@ -19,6 +21,7 @@ const defaultState = {
     favorites: [],
     totalCharacters: 0,
     pageSize: 8,
+    sliderSize: 9,
     totalPages: 0,
 };
 
@@ -29,6 +32,11 @@ function charactersReducer(state = defaultState, action) {
                 ...state,
                 items: [...action.characters],
             };
+        case SET_CHARACTERS_HOME_PAGE:
+                return {
+                    ...state,
+                    charactersHomePage: [...action.characters],
+                };
         case SET_PAGE:
             return {
                 ...state,
@@ -73,6 +81,10 @@ export let setCharacters = (characters) => ({
     type: SET_CHARACTERS,
     characters: characters,
 });
+export let setCharactersHomePage = (characters) => ({
+    type: SET_CHARACTERS_HOME_PAGE,
+    characters,
+});
 export let setPage = (page) => ({
     type: SET_PAGE,
     page: page
@@ -102,11 +114,11 @@ export let deleteFavorite = (favoriteId) => ({
     favoriteId: favoriteId,
 });
 
-export const getCharactersThunk = (search, sort, page = 1) =>{
+export const getCharactersThunk = (search, sort, pageSize, page = 1) =>{
     return (dispatch) => {
         dispatch(setPage(page));
         dispatch(setFetching(true))
-        charactersApi.getCharacters(search, sort, page)
+        charactersApi.getCharacters(search, sort, pageSize, page)
         .then(response =>{
             dispatch(setCharacters(response.data.results))
             dispatch(setTotalCharacters(response.data.total))
@@ -138,6 +150,18 @@ export const searchThunk = (search, sort) =>{
             dispatch(setTotalCharacters(response.data.total))
             dispatch(setFetching(false))
         })
+    }
+}
+
+export const getCharactersHomePageThunk = (sliderSize) =>{
+    return (dispatch) => {
+       
+        dispatch(setFetching(true))
+        charactersApi.getCharactersHomePage(sliderSize)
+        .then(response =>{
+            dispatch(setCharactersHomePage(response.data.results))
+            dispatch(setFetching(false))
+    })
     }
 }
 

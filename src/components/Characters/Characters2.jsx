@@ -17,7 +17,7 @@ const Characters2 = (props) => {
 
   useEffect(() => {
     
-    props.getCharactersThunk(props.search, props.sort, props.page)
+    props.getCharactersThunk(props.search, props.sort, props.pageSize, props.page)
     
   }, []) 
 
@@ -66,7 +66,6 @@ const Characters2 = (props) => {
             <div className={s.card_character} key={item.id}>
               
               <div className={s.favorite_bg}></div>
-             
 
               {props.favorites.find(i => i.id == item.id)
                 ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 

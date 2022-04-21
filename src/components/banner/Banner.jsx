@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import MySlider from "../Slider/MySlider";
 import s from "./Banner.module.css";
 import spider from "./spider.png";
 
 const Banner = (props) => {
   return (
+    <div>
     <div className={s.background}>
       <div className={s.wrapper}>
         <div className={s.headline_wrapper}>
@@ -26,11 +28,10 @@ const Banner = (props) => {
           <NavLink to={"/comics"} className={s.btn_comics}>
             Comics
           </NavLink>
-          
         </div>
-        
       </div>
-      
+      </div>
+      <MySlider />
     </div>
   );
 };
