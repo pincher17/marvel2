@@ -238,7 +238,7 @@
       max-width: none;
     }
     .slider{
-      width: 535px;
+      width: auto;
     }
     .btn_right{
       display: none;
