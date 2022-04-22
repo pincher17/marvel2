@@ -58,14 +58,7 @@
  .btn_character:hover{
   background-color: rgba(184, 22, 22, 0);
   color:rgb(235, 235, 235);
-  font-weight:500;
-  font-size: 20px;
   border: 1px solid rgb(184, 22, 22);
-  margin-right: 45px;
-  padding: 10px 20px 10px 20px;
-  margin-top: 65px;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .btn_comics:hover{

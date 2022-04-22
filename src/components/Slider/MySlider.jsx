@@ -19,13 +19,30 @@ const MySlider = (props) => {
 
 
   const [activeSlide, setActiveSlide] = useState(0);
+  const [hiddenArrow, setHiddenArrow] = useState(false)
+
+  useEffect(() => {
+    
+    if(activeSlide <= -66.66){
+      setHiddenArrow(true)
+    }else{
+      setHiddenArrow(false)
+    }
+    
+  }, [activeSlide]) 
 
   const nextSlide = () => {
-    setActiveSlide(activeSlide - 22,22)
+    if(activeSlide > -66.66){
+      setActiveSlide(activeSlide - 22.22)
+    }
+    
   }
 
   const prevSlide = () => {
-    setActiveSlide(activeSlide + 22,22)
+    if(activeSlide < 0){
+      setActiveSlide(activeSlide + 22.22)
+    }
+    
   }
 
   useEffect(() => {
@@ -35,8 +52,15 @@ const MySlider = (props) => {
   }, []) 
 
   return (
+    <div className={s.slider_wrapper}>
+      
+        <span className={s.text_slider}>CHARACTERS</span>
+        
     <div className={s.slider}>
-       <button className={s.btn_left} onClick={prevSlide}>left</button>
+      <div onClick={prevSlide} className={s.arrow  + ' ' + s.left}>
+        <div className={s.arrow_top}></div>
+        <div className={s.arrow_bottom}></div>
+      </div>
     <div className={s.carusel}>
      
      
@@ -73,9 +97,20 @@ const MySlider = (props) => {
      </ul>
      </div>
    </div>
-   <button className={s.btn_right}  onClick={nextSlide}>right</button>
+  {/*  <button className={s.btn_right}  onClick={nextSlide}>right</button> */}
+   <div onClick={nextSlide} className={s.arrow + ' ' + s.right + ' ' + (hiddenArrow && s.hidden)}>
+        <div className={s.arrow_top}></div>
+        <div className={s.arrow_bottom}></div>
+      </div>
+    </div>
+    <div className={s.btn_slider}>
+    <NavLink to={"/characters"} className={s.btn_character}>
+           All Characters
+    </NavLink>
+    </div>
     </div>
   );
+  
 }
 
 let mapStateToProps = (state) => {
