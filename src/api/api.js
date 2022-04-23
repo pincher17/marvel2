@@ -40,6 +40,13 @@ export const comicsApi = {
         })
     },
 
+    getComicsHomePage(sliderSize){
+        return instance.get(`comics?format=comic&orderBy=-onsaleDate&limit=${sliderSize}&offset=3`)
+        .then(response =>{
+            return response.data;
+        })
+    },
+
     getComicInfo(id){
         return instance.get(`comics/${id}`)
         .then(response =>{

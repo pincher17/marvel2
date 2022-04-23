@@ -1,18 +1,17 @@
 import React, {useState, useEffect} from "react"
 import { useSelector } from "react-redux";
-import s from './MySlider.module.css';
+import s from './SliderCharacters.module.css';
 
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getCharactersHomePageThunk, setAddFavorite, deleteFavorite, 
-          sortChangeThunk, searchThunk, setTotalPagesCharacters } from '../../reducers/characters-reducer';
+import { getCharactersHomePageThunk, setAddFavorite, deleteFavorite} from '../../reducers/characters-reducer';
 
 
 
-const MySlider = (props) => {
+const SliderCharacters = (props) => {
 
   const characters = useSelector(state => state.characters.charactersHomePage);
   const favorites = useSelector(state => state.characters.favorites);
@@ -97,7 +96,6 @@ const MySlider = (props) => {
      </ul>
      </div>
    </div>
-  {/*  <button className={s.btn_right}  onClick={nextSlide}>right</button> */}
    <div onClick={nextSlide} className={s.arrow + ' ' + s.right + ' ' + (hiddenArrow && s.hidden)}>
         <div className={s.arrow_top}></div>
         <div className={s.arrow_bottom}></div>
@@ -117,19 +115,12 @@ let mapStateToProps = (state) => {
 
   return {
     characters: state.characters.items,
-    page: state.characters.page,
-    sort: state.characters.sort,
-    search: state.characters.search,
     favorites: state.characters.favorites,
     fetching: state.fetching.isFetching,
-    totalPages: state.characters.totalPages,
-    totalCharacters: state.characters.totalCharacters,
-    pageSize: state.characters.pageSize,
     sliderSize: state.characters.sliderSize,
   }
 
 }
 
 export default connect(mapStateToProps, {getCharactersHomePageThunk, 
-  setAddFavorite, deleteFavorite, 
-  sortChangeThunk, searchThunk, setTotalPagesCharacters})(MySlider);
+  setAddFavorite, deleteFavorite})(SliderCharacters);

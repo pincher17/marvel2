@@ -1,0 +1,367 @@
+.slider_wrapper{
+  max-width: 978px;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+.text_slider{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.slider{
+  display: flex;
+  width: 978px;
+  margin: 0 auto;
+  align-content: center;
+    align-items: center;
+}
+
+.carusel_li{
+    list-style: none;
+    display: inline-block;
+   
+  }
+  
+  .carusel{
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    height: 480px;
+    
+    
+  }
+  
+  .carusel_ul{
+    width: max-content;
+    font-size: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .carusel_ul li{
+    font-size: 16px;
+  }
+
+  .carusel_wrapper{
+      padding: 0;
+      transition: all .3s;
+      position: absolute;
+      /* top: 20%; */
+      left: -10px;
+  }
+  
+  .btn_right{
+    background-color: orangered;
+    
+  }
+  
+  .btn_left {
+    background-color: orangered;
+    
+  }
+
+
+
+
+
+
+  .card_comics_wrapper{
+    display: flex;
+    /*justify-content: space-between;*/
+    height: 100%;
+    /* align-items: flex-start; */
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  
+  .comics{
+    width: 240px;
+    height: 385px;
+    position: relative;
+    margin: 25px;
+    margin-right: 32px;
+    
+  }
+  
+  .card_comics{
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 85%;
+    position: absolute;
+    box-shadow: 0px 6px 12px -5px rgba(34, 60, 80, 0.6);
+    margin-bottom: 15px;
+    position: relative;
+    transition: top ease 0.2s;
+    
+  }
+
+  .card_comics:hover{
+    top: -15px;
+  }
+
+  .card_img{
+    width: 100%;
+      /* background: url(./spider-man.jpg); */
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position: center;
+      
+  }
+
+  .title{
+    margin-top: 15px;
+  }
+
+  .card_title{
+    color: #111111;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .card_title2{
+    color: #eeeeee;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn_favorite{
+    width: 125px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background-color:rgb(218, 17, 17);
+    color:rgba(255, 255, 255, 0.959);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn_favorite_delete{
+    width: 125px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background-color:rgb(92, 92, 92);
+    color:rgba(255, 255, 255, 0.959);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page{
+    border: 1px #242424 solid;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .selected{
+    font-weight:bold;
+    cursor: pointer;
+  }
+
+ .btn_favorite_star{
+   position: absolute;
+   right: 0;
+   color: rgb(223, 223, 57);
+   cursor: pointer;
+ }
+
+ .favorite_bg{
+   position: absolute;
+   right: 0;
+   width: 0;
+   height: 0;
+   border-top: 65px solid rgb(212, 21, 21); 
+   border-left: 65px solid transparent;
+ }
+
+
+
+
+
+
+
+
+
+.arrow{
+    cursor: pointer;
+    height: 140px;
+    position: relative;
+    width: 55px;
+}
+
+.arrow.left{
+  transform: rotate(180deg);
+}
+
+.arrow.right{
+  /* transform: rotate(180deg); */
+}
+
+.arrow_top, 
+.arrow_bottom {
+    background: rgb(184, 22, 22);
+    height: 10px;
+    left: -15px;
+    position: absolute;
+    top: 60px;
+    width: 55px;
+}
+.arrow_top {
+    top: 64px;
+}
+.arrow_top {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+.arrow_bottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+.arrow_top::after, 
+.arrow_bottom::after {
+    background: #000;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+.arrow_top::after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+}
+.arrow_bottom::after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+.arrow:hover .arrow_top::after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+.arrow:hover .arrow_bottom::after {
+    right: 0;
+    transition-delay: 0s;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.btn_comics{
+  background-color: rgb(184, 22, 22);
+  color:rgb(235, 235, 235);
+  font-weight:500;
+  font-size: 20px;
+  margin-right: 45px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 65px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgb(184, 22, 22);
+}
+
+
+
+
+  @media (max-width: 1200px){
+   /*  .card_comics{
+      margin: 32px;
+    } */
+  }
+
+  @media (max-width: 992px){
+    .slider_wrapper{
+      max-width: 750px;
+    }
+    .slider{
+      max-width: 750px;
+    }
+    .comics{
+      margin-right: auto;
+      width: 191px;
+      height: 340px;
+    }
+    .carusel{
+      height: 460px;
+    }    
+    
+  }
+  
+  @media (max-width: 767px){
+    .slider_wrapper{
+      padding-left: 15px;
+      /* max-width: 750px; */
+      margin-top: 50px;
+    }
+    .slider{
+      width: 535px;
+    }
+    .card_comics{
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 596px){
+    .arrow{
+      display: none;
+    }
+    .slider{
+      width: auto;
+    }
+    .carusel{
+      border: none;
+      scroll-snap-type: x mandatory;
+      overflow: auto;
+      height: 434px;
+    }    
+    .carusel_ul li{
+      scroll-snap-align: start;
+    }
+    .carusel_wrapper{
+      left: -23px;
+    }
+    
+  }
+
+  @media (max-width: 549px){
+    .characters_page{
+      max-width: none;
+    }
+    .slider{
+      width: auto;
+    }
+    .btn_right{
+      display: none;
+    }
+    .btn_left{
+      display: none;
+    }
+    .carusel{
+      border: none;
+      scroll-snap-type: x mandatory;
+      overflow: auto;
+      height: 434px;
+      margin-bottom: 8px;
+    }    
+    .carusel_ul li{
+      scroll-snap-align: start;
+    }
+  }

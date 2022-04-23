@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import MySlider from "../Slider/MySlider";
+import SliderCharacters from "../SliderCharacters/SliderCharacters";
+import SliderComics from "../SliderComics/SliderComics";
 import s from "./Banner.module.css";
 import spider from "./spider.png";
 
@@ -31,7 +32,8 @@ const Banner = (props) => {
         </div>
       </div>
       </div>
-      <MySlider />
+      <SliderCharacters />
+      <SliderComics />
     </div>
   );
 };

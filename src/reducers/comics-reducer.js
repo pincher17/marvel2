@@ -9,10 +9,12 @@ const SET_ADD_FAVORITES_COMICS = "SET_ADD_FAVORITES_COMICS";
 const DELETE_FAVORITES_COMICS = "DELETE_FAVORITES_COMICS";
 const SET_TOTAL_COMICS = 'SET_TOTAL_COMICS'
 const SET_TOTAL_PAGES_COMICS= 'SET_TOTAL_PAGES_COMICS'
+const SET_COMICS_HOME_PAGE = 'SET_COMICS_HOME_PAGE'
 
 
 const defaultState = {
     items: [],
+    comicsHomePage: [],
     offset: 0,
     page: 1,
     sort: "title",
@@ -20,6 +22,7 @@ const defaultState = {
     favorites: [],
     totalComics: 0,
     pageSize: 8,
+    sliderSize: 9,
     totalPages: 0,
 };
 
@@ -29,6 +32,11 @@ function comicsReducer(state = defaultState, action) {
             return {
                 ...state,
                 items: [...action.comics],
+            };
+        case SET_COMICS_HOME_PAGE:
+            return {
+                ...state,
+                comicsHomePage: [...action.comics],
             };
         case SET_PAGE_COMICS:
             return {
@@ -73,6 +81,10 @@ function comicsReducer(state = defaultState, action) {
 export let setComics = (comics) => ({
     type: SET_COMICS,
     comics: comics,
+});
+export let setComicsHomePage = (comics) => ({
+    type: SET_COMICS_HOME_PAGE,
+    comics,
 });
 export let setPage = (page) => ({
     type: SET_PAGE_COMICS,
@@ -139,6 +151,15 @@ export const searchComicsThunk = (search, sort) =>{
             dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))
         })
+    }
+}
+
+export const getComicsHomePageThunk = (sliderSize) =>{
+    return (dispatch) => {
+        comicsApi.getComicsHomePage(sliderSize)
+        .then(response =>{
+            dispatch(setComicsHomePage(response.data.results))
+    })
     }
 }
 
