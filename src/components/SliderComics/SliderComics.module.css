@@ -190,14 +190,6 @@
    border-left: 65px solid transparent;
  }
 
-
-
-
-
-
-
-
-
 .arrow{
     cursor: pointer;
     height: 140px;
@@ -317,6 +309,7 @@
     .card_comics{
       margin-right: auto;
     }
+
   }
 
   @media (max-width: 596px){
@@ -338,7 +331,9 @@
     .carusel_wrapper{
       left: -23px;
     }
-    
+    .card_comics:hover{
+      top: 0;
+    }
   }
 
   @media (max-width: 549px){
@@ -364,4 +359,8 @@
     .carusel_ul li{
       scroll-snap-align: start;
     }
+    .card_comics:hover{
+      top: 0;
+    }
+
   }

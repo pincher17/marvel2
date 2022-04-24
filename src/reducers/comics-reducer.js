@@ -115,12 +115,12 @@ export let deleteFavorite = (favoriteId) => ({
     favoriteId: favoriteId,
 });
 
-export const getComicsThunk = (search, sort, page = 1) =>{
+export const getComicsThunk = (search, sort, pageSize, page = 1) =>{
     return (dispatch) => {
         dispatch(setPage(page));
         debugger;
         dispatch(setFetching(true))
-        comicsApi.getComics(search, sort, page).then(response =>{
+        comicsApi.getComics(search, sort, pageSize, page).then(response =>{
             dispatch(setComics(response.data.results))
             dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))

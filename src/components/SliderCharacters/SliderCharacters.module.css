@@ -357,7 +357,9 @@
     .carusel_wrapper{
       left: -23px;
     }
-    
+    .card_character:hover{
+      transform: none;
+    }
   }
 
   @media (max-width: 549px){
@@ -381,5 +383,8 @@
     }    
     .carusel_ul li{
       scroll-snap-align: start;
+    }
+    .card_character:hover{
+      transform: none;
     }
   }

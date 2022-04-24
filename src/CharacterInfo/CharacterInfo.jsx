@@ -21,7 +21,7 @@ const CharacterInfo = (props) => {
   let { characterId } = useParams();
   const info = useSelector(state => state.characterInfo.character);
   console.log(props.characterInfo)
-  /* console.log(props.favorites) */
+  
   useEffect(() => {
     
     props.getCharacterInfoThunk(characterId);
@@ -63,6 +63,7 @@ const CharacterInfo = (props) => {
             )}
             <p className={s.head_comics}>Comics with {item.name}:</p>
             <div className={s.comics_wrapper}>
+
               {props.characterComics.map((item) => (
                 <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
                 <div className={s.comic}>
@@ -73,6 +74,7 @@ const CharacterInfo = (props) => {
                   <p className={s.comic_title}>{item.title}</p>
                 </div>
                 </NavLink>
+
               ))}
               
             </div>

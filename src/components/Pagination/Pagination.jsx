@@ -43,7 +43,7 @@ const Pages = (props) => {
    
         <div className={s.pagination_wrapper}>
           <div className={s.pagination}>
-                  <Pagination count={props.totalPages} onChange={(_, num) => props.thunk(props.search, props.sort, num)}
+                  <Pagination count={props.totalPages} onChange={(_, num) => props.thunk(props.search, props.sort, props.pageSize, num)}
                     defaultPage={props.page} variant="outlined" shape="rounded" 
                     className={classes.root} page={props.page}  />
           </div>

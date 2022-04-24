@@ -33,8 +33,8 @@ export const charactersApi = {
 } 
 
 export const comicsApi = {
-    getComics(search, sort, page = 1){
-        return instance.get(`comics?format=comic&${search === '' ? '' : `titleStartsWith=${search}`}&orderBy=${sort}&limit=8&offset=${(page - 1) * 8}`)
+    getComics(search, sort, pageSize, page = 1){
+        return instance.get(`comics?format=comic&${search === '' ? '' : `titleStartsWith=${search}`}&orderBy=${sort}&limit=8&offset=${(page - 1) * pageSize}`)
         .then(response =>{
             return response.data;
         })

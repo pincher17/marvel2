@@ -5,6 +5,7 @@ import s from './SliderComics.module.css';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
+import Tooltip from '@mui/material/Tooltip';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getComicsHomePageThunk, setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
@@ -75,9 +76,11 @@ const SliderComics = (props) => {
                 ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
-                : <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
+                : <Tooltip title="Add favorite">
+                  <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="large" />
                   </div>
+                  </Tooltip>
               }
               <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
               <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + '.jpg' + ')' }}></div>
@@ -89,7 +92,6 @@ const SliderComics = (props) => {
             </div>
             </li>
           ))}
-        
         
      </ul>
      </div>

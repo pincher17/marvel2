@@ -175,5 +175,8 @@
     margin-right: auto;
     margin-left: auto;
   }
+  .card_comics:hover{
+    top: 0;
+  }
 }
 

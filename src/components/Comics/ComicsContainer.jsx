@@ -10,7 +10,7 @@ class ComicsContainer extends React.Component {
 
   componentDidMount() {
 
-    this.props.getComicsThunk(this.props.search, this.props.sort, this.props.page)
+    this.props.getComicsThunk(this.props.search, this.props.sort, this.props.pageSize, this.props.page)
 
   }
 
