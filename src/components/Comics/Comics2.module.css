@@ -132,6 +132,11 @@
   margin: 200px auto;
 }
 
+.text_no_favorites{
+  margin: 0 auto;
+  color: #000000ad;
+  font-weight: bold;
+}
 
 @media (max-width: 1200px){
   .comics_page{

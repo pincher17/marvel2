@@ -73,9 +73,11 @@ const SliderComics = (props) => {
               <div className={s.card_comics}>
                 <div className={s.favorite_bg}></div>
               {favorites.find(i => i.id == item.id)
-                ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
+                ? <Tooltip title="Delete favorite">
+                  <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
+                 </Tooltip>
                 : <Tooltip title="Add favorite">
                   <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="large" />

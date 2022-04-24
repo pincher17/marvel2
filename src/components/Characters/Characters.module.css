@@ -181,3 +181,9 @@
   .spinner_wrapper{
     margin: 200px auto;
   }
+
+  .text_no_favorites{
+    margin: 0 auto;
+    color: #000000ad;
+    font-weight: bold;
+  }

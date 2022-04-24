@@ -49,7 +49,9 @@ const ComicInfo = (props) => {
                 <p className={s.info_character}>{item.description}</p>
               </div>
             ) : (
-              <div></div>
+              <div>
+                <p className={s.info_character}>No description</p>
+                </div>
             )}
           </div>
         </div>

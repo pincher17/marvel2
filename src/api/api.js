@@ -41,7 +41,7 @@ export const comicsApi = {
     },
 
     getComicsHomePage(sliderSize){
-        return instance.get(`comics?format=comic&orderBy=-onsaleDate&limit=${sliderSize}&offset=3`)
+        return instance.get(`comics?format=comic&titleStartsWith=a&orderBy=title&limit=${sliderSize}&offset=47`)
         .then(response =>{
             return response.data;
         })

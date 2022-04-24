@@ -2,6 +2,7 @@ import * as React from 'react';
 import Masthead from '../MastHead/Masthead';
 import s from './Comics2.module.css';
 import Pages from '../Pagination/Pagination';
+import Tooltip from '@mui/material/Tooltip';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
@@ -68,12 +69,16 @@ const Comics2 = (props) => {
               <div className={s.card_comics}>
                 <div className={s.favorite_bg}></div>
               {props.favorites.find(i => i.id == item.id)
-                ? <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
+                ? <Tooltip title="Delete favorite">
+                 <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />
                  </div>
-                : <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
+                 </Tooltip>
+                : <Tooltip title="Add favorite">
+                  <div onClick={() => { props.setAddFavorite(item) }} className={s.btn_favorite_star}>
                     <SvgIcon component={StarBorderRoundedIcon} fontSize="large" />
                   </div>
+                  </Tooltip>
               }
               <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
               <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + '.jpg' + ')' }}></div>
