@@ -3,7 +3,8 @@ import Comics2 from './Comics2.jsx';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { getComicsThunk, sortChangeComicsThunk, searchComicsThunk, 
-          setAddFavorite, deleteFavorite, setTotalPagesComics } from '../../reducers/comics-reducer';
+          setAddFavorite, deleteFavorite, setTotalPagesComics, 
+          updateSearch } from '../../reducers/comics-reducer';
 
 
 class ComicsContainer extends React.Component {
@@ -43,5 +44,5 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {getComicsThunk, sortChangeComicsThunk, 
-  searchComicsThunk, setAddFavorite, deleteFavorite, setTotalPagesComics})(withRouter(ComicsContainer));
+  searchComicsThunk, setAddFavorite, deleteFavorite, setTotalPagesComics, updateSearch})(withRouter(ComicsContainer));
 

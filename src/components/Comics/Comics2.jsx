@@ -9,24 +9,14 @@ import SvgIcon from '@mui/material/SvgIcon';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
+import Search from '../Search/Search';
 
 
 
 const Comics2 = (props) => {
 
-  let sortValue = React.createRef();
-
-  let onSort = () => {
-    let sort = sortValue.current.value;
-    props.sortChangeComicsThunk(props.search, sort);
-  }
-
-  let searchValue = React.createRef();
-  let onSearch = () => {
-    let search = searchValue.current.value;
-    props.searchComicsThunk(search, props.sort);
-  }
  
+  const [search, setSearch] = React.useState(props.search)
 
  /*  const useStyles = makeStyles((theme) =>({
     root: {
@@ -37,6 +27,25 @@ const Comics2 = (props) => {
   
   const classes = useStyles(); */
 
+  let onKeyPressHandler = (e) =>{
+    if (e.keyCode === 13) {
+      props.searchComicsThunk(search, props.sort);
+    }
+  }
+
+  let onSearch = () => {
+    props.searchComicsThunk(search, props.sort);
+  }
+
+  let onSearchChange = (e) =>{
+    setSearch(e.currentTarget.value)
+    props.updateSearch(e.currentTarget.value)
+  }
+
+  let onSort = (sort) => {
+    props.sortChangeComicsThunk(props.search, sort);
+  }
+
 
   return (
     <div>
@@ -46,13 +55,19 @@ const Comics2 = (props) => {
       <div className={s.comics_page}>
 
 
-        <select ref={sortValue} onChange={onSort} className={s.user_profile_color_1}>
+ {/*        <select ref={sortValue} onChange={onSort} className={s.user_profile_color_1}>
           <option value="title">A-z</option>
           <option value="-title">Z-a</option>
         </select>
 
         <input ref={searchValue} type="search" name="q" placeholder="Поиск по сайту"></input>
-        <input type="submit" value="Найти" onClick={onSearch}></input>
+        <input type="submit" value="Найти" onClick={onSearch}></input> */}
+
+<Search sort={props.sort} onSort={onSort} valueSort={'title'} search={props.search} 
+        onSearchChange={onSearchChange} onKeyPressHandler={onKeyPressHandler}
+        onSearch={onSearch} />
+
+        
 
         <div className={s.card_comics_wrapper}>
         

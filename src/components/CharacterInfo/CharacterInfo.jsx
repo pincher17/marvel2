@@ -5,8 +5,8 @@ import s from "./CharacterInfo.module.css";
 import {
   getCharacterInfoThunk,
   getCharacterInfoComicsThunk,
-} from "../../src/reducers/characterInfo-reducer";
-import {setAddFavorite, deleteFavorite} from '../../src/reducers/characters-reducer';
+} from "../../reducers/characterInfo-reducer";
+import {setAddFavorite, deleteFavorite} from '../../reducers/characters-reducer';
 import { NavLink } from "react-router-dom";
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';

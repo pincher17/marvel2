@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import s from "./ComicInfo.module.css";
-import { getComicInfoThunk } from "../reducers/comicInfo-reducer";
+import { getComicInfoThunk } from "../../reducers/comicInfo-reducer";
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
-import { setAddFavorite, deleteFavorite } from '../reducers/comics-reducer';
+import { setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
 
 
 

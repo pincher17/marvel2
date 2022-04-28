@@ -4,6 +4,20 @@
     padding-bottom: 50px;
   }
   
+  .search_wrapper{
+    display: flex;
+    padding-left: 15px;
+  }
+
+  .sort_wrapper{
+    padding-right: 9px;
+  }
+
+  .btn_search{
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
   .card_character_wrapper{
    /*  display: flex;
     justify-content: space-between;
@@ -61,6 +75,9 @@
     }
     .card_character{
       margin-right: auto;
+    }
+    .card_character:hover{
+      transform: none;
     }
   }
 

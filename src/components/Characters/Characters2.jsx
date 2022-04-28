@@ -10,32 +10,42 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { connect } from 'react-redux';
 import { getCharactersThunk, setAddFavorite, deleteFavorite, 
-          sortChangeThunk, searchThunk, setTotalPagesCharacters } from '../../reducers/characters-reducer';
+          sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch } from '../../reducers/characters-reducer';
 import { NavLink } from 'react-router-dom';
+import Search from '../Search/Search';
 
 
 const Characters2 = (props) => {
+
+  const [search, setSearch] = useState(props.search)
 
   useEffect(() => {
     
     props.getCharactersThunk(props.search, props.sort, props.pageSize, props.page)
     
-  }, []) 
+  }, [])
 
-  
-  let sortValue = React.createRef();
 
-  let onSort = () => {
-    let sort = sortValue.current.value;
-    props.sortChangeThunk(props.search, sort)
+  let onKeyPressHandler = (e) =>{
+    if (e.keyCode === 13) {
+      props.searchThunk(search, props.sort);
+    }
   }
 
-  let searchValue = React.createRef();
   let onSearch = () => {
-    let search = searchValue.current.value;
     props.searchThunk(search, props.sort);
   }
 
+  let onSearchChange = (e) =>{
+    setSearch(e.currentTarget.value)
+    props.updateSearch(e.currentTarget.value)
+  }
+
+  let onSort = (sort) => {
+    props.sortChangeThunk(props.search, sort)
+  }
+  
+  console.log('character')
   return (
 
     <div>
@@ -44,14 +54,9 @@ const Characters2 = (props) => {
 
       <div className={s.characters_page}>
 
-
-        <select ref={sortValue} onChange={onSort} className={s.user_profile_color_1}>
-          <option value="name">A-z</option>
-          <option value="-name">Z-a</option>
-        </select>
-
-        <input ref={searchValue} type="search" name="q" placeholder="Поиск по сайту"></input>
-        <input type="submit" value="Найти" onClick={onSearch}></input>
+      <Search sort={props.sort} onSort={onSort} valueSort={'name'} 
+        search={props.search} onSearchChange={onSearchChange} 
+        onKeyPressHandler={onKeyPressHandler} onSearch={onSearch} />
 
         <div className={s.card_character_wrapper}>
 
@@ -119,4 +124,4 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getCharactersThunk, 
   setAddFavorite, deleteFavorite, 
-  sortChangeThunk, searchThunk, setTotalPagesCharacters})(Characters2);
+  sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch})(Characters2);

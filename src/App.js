@@ -12,8 +12,8 @@ import Slider from './components/banner/Slider';
 import Banner from './components/banner/Banner';
 import Favorites from './components/favorites/Favorites';
 import Characters2 from './components/Characters/Characters2';
-import CharacterInfo from './CharacterInfo/CharacterInfo';
-import ComicInfo from './ComicInfo/ComicInfo';
+import CharacterInfo from './components/CharacterInfo/CharacterInfo';
+import ComicInfo from './components/ComicInfo/ComicInfo';
 import BurgerMenu from './components/Header/BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 

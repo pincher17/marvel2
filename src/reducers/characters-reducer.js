@@ -16,7 +16,7 @@ const defaultState = {
     charactersHomePage: [],
     offset: 0,
     page: 1,
-    sort: "name",
+    sort: 'name',
     search: "",
     favorites: [],
     totalCharacters: 0,
@@ -93,7 +93,7 @@ export let setSort = (sort) => ({
     type: SET_SORT,
     sort: sort
 });
-export let setSearch = (search) => ({
+export let updateSearch = (search) => ({
     type: SET_SEARCH,
     search: search,
 });
@@ -143,7 +143,7 @@ export const sortChangeThunk = (search, sort) =>{
 export const searchThunk = (search, sort) =>{
     return (dispatch) => {
         dispatch(setPage(1));
-        dispatch(setSearch(search));
+        dispatch(updateSearch(search));
         dispatch(setFetching(true))
         charactersApi.getCharacters(search, sort).then(response => {
             dispatch(setCharacters(response.data.results))

@@ -1,0 +1,10 @@
+
+  .btn_search{
+    background-color: rgb(212,21,21);
+    color: #f1f1f1;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    height: 40px;
+  }
+

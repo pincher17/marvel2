@@ -1,0 +1,13 @@
+.search_wrapper{
+    display: flex;
+    padding-left: 15px;
+  }
+
+  .sort_wrapper{
+    padding-right: 9px;
+  }
+
+  .btn_search{
+    padding-left: 9px;
+    padding-right: 9px;
+  }

@@ -94,7 +94,7 @@ export let setSort = (sort) => ({
     type: SET_SORT_COMICS,
     sort: sort
 });
-export let setSearch = (search) => ({
+export let updateSearch = (search) => ({
     type: SET_SEARCH_COMICS,
     search: search,
 });
@@ -118,7 +118,6 @@ export let deleteFavorite = (favoriteId) => ({
 export const getComicsThunk = (search, sort, pageSize, page = 1) =>{
     return (dispatch) => {
         dispatch(setPage(page));
-        debugger;
         dispatch(setFetching(true))
         comicsApi.getComics(search, sort, pageSize, page).then(response =>{
             dispatch(setComics(response.data.results))
@@ -144,7 +143,7 @@ export const sortChangeComicsThunk = (search, sort) =>{
 export const searchComicsThunk = (search, sort) =>{
     return (dispatch) => {
         dispatch(setPage(1));
-        dispatch(setSearch(search));
+        dispatch(updateSearch(search));
         dispatch(setFetching(true))
         comicsApi.getComics(search, sort).then(response => {
             dispatch(setComics(response.data.results))
