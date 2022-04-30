@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 50px;
+    scroll-margin-top: 40px;
   }
   
   .card_comics_wrapper{

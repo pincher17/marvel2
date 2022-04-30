@@ -10,12 +10,14 @@ const DELETE_FAVORITES = "DELETE_FAVORITES";
 const SET_TOTAL_CHARACTERS = 'SET_TOTAL_CHARACTERS'
 const SET_TOTAL_PAGES_CHARACTERS= 'SET_TOTAL_PAGES_CHARACTERS'
 const SET_CHARACTERS_HOME_PAGE = 'SET_CHARACTERS_HOME_PAGE'
+const PAGE_CHANGE = 'PAGE_CHANGE'
 
 const defaultState = {
     items: [],
     charactersHomePage: [],
     offset: 0,
     page: 1,
+    pageChange: false,
     sort: 'name',
     search: "",
     favorites: [],
@@ -42,6 +44,11 @@ function charactersReducer(state = defaultState, action) {
                 ...state,
                 page: action.page,
             };
+        case PAGE_CHANGE:
+            return {
+                ...state,
+                pageChange: action.pageChange
+                };        
         case SET_SORT:
             return {
                 ...state,
@@ -87,7 +94,11 @@ export let setCharactersHomePage = (characters) => ({
 });
 export let setPage = (page) => ({
     type: SET_PAGE,
-    page: page
+    page: page,
+});
+export let setPageChange = (pageChange) => ({
+    type: PAGE_CHANGE,
+    pageChange
 });
 export let setSort = (sort) => ({
     type: SET_SORT,
@@ -114,9 +125,10 @@ export let deleteFavorite = (favoriteId) => ({
     favoriteId: favoriteId,
 });
 
-export const getCharactersThunk = (search, sort, pageSize, page = 1) =>{
+export const getCharactersThunk = (search, sort, pageSize, page = 1, pageChange) =>{
     return (dispatch) => {
         dispatch(setPage(page));
+        dispatch(setPageChange(pageChange))
         dispatch(setFetching(true))
         charactersApi.getCharacters(search, sort, pageSize, page)
         .then(response =>{

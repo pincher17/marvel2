@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Masthead from '../MastHead/Masthead';
 import Pages from '../Pagination/Pagination';
 import s from './Characters.module.css';
@@ -10,7 +10,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { connect } from 'react-redux';
 import { getCharactersThunk, setAddFavorite, deleteFavorite, 
-          sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch } from '../../reducers/characters-reducer';
+          sortChangeThunk, searchThunk, setTotalPagesCharacters, 
+          updateSearch, setPageChange } from '../../reducers/characters-reducer';
 import { NavLink } from 'react-router-dom';
 import Search from '../Search/Search';
 
@@ -18,14 +19,18 @@ import Search from '../Search/Search';
 const Characters2 = (props) => {
 
   const [search, setSearch] = useState(props.search)
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     
     props.getCharactersThunk(props.search, props.sort, props.pageSize, props.page)
-    
+   
   }, [])
 
-
+  const onScroll = () => {
+    wrapperRef.current.scrollIntoView(true);
+  }
+  
   let onKeyPressHandler = (e) =>{
     if (e.keyCode === 13) {
       props.searchThunk(search, props.sort);
@@ -50,9 +55,9 @@ const Characters2 = (props) => {
 
     <div>
 
-      <Masthead head={'CHARACTERS'} />
+      <Masthead head={'CHARACTERS'}  />
 
-      <div className={s.characters_page}>
+      <div className={s.characters_page} ref={wrapperRef} >
 
       <Search sort={props.sort} onSort={onSort} valueSort={'name'} 
         search={props.search} onSearchChange={onSearchChange} 
@@ -99,7 +104,7 @@ const Characters2 = (props) => {
           
         </div>
         <Pages thunk={props.getCharactersThunk} total={props.totalCharacters} 
-        setTotalPages={props.setTotalPagesCharacters} {...props} />
+        setTotalPages={props.setTotalPagesCharacters} onScroll={onScroll} {...props} />
       </div>
     </div>
   )
@@ -117,11 +122,12 @@ let mapStateToProps = (state) => {
     fetching: state.fetching.isFetching,
     totalPages: state.characters.totalPages,
     totalCharacters: state.characters.totalCharacters,
-    pageSize: state.characters.pageSize
+    pageSize: state.characters.pageSize,
+    pageChange: state.characters.pageChange,
   }
 
 }
 
 export default connect(mapStateToProps, {getCharactersThunk, 
   setAddFavorite, deleteFavorite, 
-  sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch})(Characters2);
+  sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch, setPageChange})(Characters2);

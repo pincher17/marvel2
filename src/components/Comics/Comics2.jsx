@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 import Masthead from '../MastHead/Masthead';
 import s from './Comics2.module.css';
 import Pages from '../Pagination/Pagination';
@@ -17,15 +17,11 @@ const Comics2 = (props) => {
 
  
   const [search, setSearch] = React.useState(props.search)
+  const wrapperRef = useRef(null);
 
- /*  const useStyles = makeStyles((theme) =>({
-    root: {
-        
-
-    },
-  }))
-  
-  const classes = useStyles(); */
+  const onScroll = () => {
+    wrapperRef.current.scrollIntoView(true);
+  }
 
   let onKeyPressHandler = (e) =>{
     if (e.keyCode === 13) {
@@ -52,7 +48,7 @@ const Comics2 = (props) => {
 
       <Masthead head={'COMICS'} />
 
-      <div className={s.comics_page}>
+      <div className={s.comics_page} ref={wrapperRef}>
 
 
  {/*        <select ref={sortValue} onChange={onSort} className={s.user_profile_color_1}>
@@ -106,7 +102,7 @@ const Comics2 = (props) => {
             
           ))}
         </div>
-          <Pages {...props} />
+          <Pages {...props} onScroll={onScroll} />
       </div>
     </div>
   )
