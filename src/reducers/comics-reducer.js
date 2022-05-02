@@ -10,6 +10,7 @@ const DELETE_FAVORITES_COMICS = "DELETE_FAVORITES_COMICS";
 const SET_TOTAL_COMICS = 'SET_TOTAL_COMICS'
 const SET_TOTAL_PAGES_COMICS= 'SET_TOTAL_PAGES_COMICS'
 const SET_COMICS_HOME_PAGE = 'SET_COMICS_HOME_PAGE'
+const SET_AUTO_COMPLETE_COMICS = 'SET_AUTO_COMPLETE_COMICS'
 
 
 const defaultState = {
@@ -19,6 +20,7 @@ const defaultState = {
     page: 1,
     sort: "title",
     search: "",
+    autoComplete: [],
     favorites: [],
     totalComics: 0,
     pageSize: 8,
@@ -53,6 +55,18 @@ function comicsReducer(state = defaultState, action) {
                 ...state,
                 search: action.search,
             };
+        case SET_AUTO_COMPLETE_COMICS:
+            return {
+                ...state,
+                autoComplete: action.comics.map(obj=>({...obj, title: obj.title.replace(/\s\(.+/mg, "" )}))
+                .filter((item) => {
+                    if (action.comics.indexOf(item.title) === -1) {
+                        action.comics.push(item.title);
+                        return true
+                    }
+                    return false;
+                }),
+                };
         case SET_ADD_FAVORITES_COMICS:
             return {
                 ...state,
@@ -98,6 +112,10 @@ export let updateSearch = (search) => ({
     type: SET_SEARCH_COMICS,
     search: search,
 });
+export let setAutoCompleteComics = (comics) => ({
+    type: SET_AUTO_COMPLETE_COMICS,
+    comics,
+});
 export let setTotalComics = (totalComics) => ({
     type: SET_TOTAL_COMICS,
     totalComics
@@ -123,6 +141,16 @@ export const getComicsThunk = (search, sort, pageSize, page = 1) =>{
             dispatch(setComics(response.data.results))
             dispatch(setTotalComics(response.data.total))
             dispatch(setFetching(false))
+    })
+    }
+}
+
+export const getComicsAutoCompleteThunk = (search) =>{
+    return (dispatch) => {
+
+        comicsApi.getComicsAutoComplete(search).then(response =>{
+            dispatch(setAutoCompleteComics(response.data.results))
+
     })
     }
 }

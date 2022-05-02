@@ -4,7 +4,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { getComicsThunk, sortChangeComicsThunk, searchComicsThunk, 
           setAddFavorite, deleteFavorite, setTotalPagesComics, 
-          updateSearch } from '../../reducers/comics-reducer';
+          updateSearch, getComicsAutoCompleteThunk } from '../../reducers/comics-reducer';
 
 
 class ComicsContainer extends React.Component {
@@ -35,7 +35,8 @@ let mapStateToProps = (state) => {
     fetching: state.fetching.isFetching,
     totalPages: state.comics.totalPages,
     totalComics: state.comics.totalComics,
-    pageSize: state.comics.pageSize
+    pageSize: state.comics.pageSize,
+    autoComplete: state.comics.autoComplete,
   }
 
 }
@@ -44,5 +45,6 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {getComicsThunk, sortChangeComicsThunk, 
-  searchComicsThunk, setAddFavorite, deleteFavorite, setTotalPagesComics, updateSearch})(withRouter(ComicsContainer));
+  searchComicsThunk, setAddFavorite, deleteFavorite, setTotalPagesComics, updateSearch,
+  getComicsAutoCompleteThunk})(withRouter(ComicsContainer));
 

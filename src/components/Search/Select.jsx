@@ -28,7 +28,7 @@ export default function Sort(props) {
   }))
   
   const classes = useStyles();
-  debugger;
+ 
   return (
     <Box sx={{ Width: 50 }}>
       <FormControl fullWidth>

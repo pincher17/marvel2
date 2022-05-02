@@ -51,6 +51,12 @@
     cursor: pointer;
     transition: transform .2s;
   }
+
+
+  .card_character:hover{
+    transform: scale(1.1);
+  }
+  
  
   @media (max-width: 1200px){
     .characters_page{
@@ -109,10 +115,7 @@
     
   }
 
-  .card_character:hover{
-    transform: scale(1.1);
-  }
-  
+
   .card_info{
     display: flex;
     

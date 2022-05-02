@@ -3,6 +3,25 @@
     padding-left: 15px;
   }
 
+.search_input_wrapper{
+  position: relative;
+  width: 400px;
+}
+
+.search_list_wrapper{
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+ /*  display: none; */
+}
+
+.none{
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  display: none;
+}
+
   .sort_wrapper{
     padding-right: 9px;
   }

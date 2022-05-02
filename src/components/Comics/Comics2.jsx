@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Masthead from '../MastHead/Masthead';
 import s from './Comics2.module.css';
 import Pages from '../Pagination/Pagination';
@@ -17,7 +17,15 @@ const Comics2 = (props) => {
 
  
   const [search, setSearch] = React.useState(props.search)
+  const [hideAutoComplete, setHideAutoComplete] = useState(true)
   const wrapperRef = useRef(null);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    
+    setSearch(props.search)
+   
+  }, [props.search])
 
   const onScroll = () => {
     wrapperRef.current.scrollIntoView(true);
@@ -26,6 +34,8 @@ const Comics2 = (props) => {
   let onKeyPressHandler = (e) =>{
     if (e.keyCode === 13) {
       props.searchComicsThunk(search, props.sort);
+      setHideAutoComplete(true)
+      inputRef.current.blur()
     }
   }
 
@@ -34,8 +44,16 @@ const Comics2 = (props) => {
   }
 
   let onSearchChange = (e) =>{
-    setSearch(e.currentTarget.value)
-    props.updateSearch(e.currentTarget.value)
+    /* setSearch(e.currentTarget.value) */
+    let value = e.currentTarget.value
+    props.getComicsAutoCompleteThunk(value)
+    props.updateSearch(value)
+  }
+
+  let onClickAutoComplete = (value) =>{
+    /* setSearch(value) */
+    props.updateSearch(value)
+    props.searchComicsThunk(value, props.sort);
   }
 
   let onSort = (sort) => {
@@ -61,7 +79,9 @@ const Comics2 = (props) => {
 
 <Search sort={props.sort} onSort={onSort} valueSort={'title'} search={props.search} 
         onSearchChange={onSearchChange} onKeyPressHandler={onKeyPressHandler}
-        onSearch={onSearch} />
+        onSearch={onSearch} autoComplete={props.autoComplete} valueSearch={'title'}
+        onClickAutoComplete={onClickAutoComplete} display={hideAutoComplete}
+        setHideAutoComplete={setHideAutoComplete} inputRef={inputRef}  />
 
         
 

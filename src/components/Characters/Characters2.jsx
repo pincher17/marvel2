@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import { connect } from 'react-redux';
 import { getCharactersThunk, setAddFavorite, deleteFavorite, 
           sortChangeThunk, searchThunk, setTotalPagesCharacters, 
-          updateSearch, setPageChange } from '../../reducers/characters-reducer';
+          updateSearch, setPageChange, getCharactersAutoCompleteThunk } from '../../reducers/characters-reducer';
 import { NavLink } from 'react-router-dom';
 import Search from '../Search/Search';
 
@@ -19,13 +19,23 @@ import Search from '../Search/Search';
 const Characters2 = (props) => {
 
   const [search, setSearch] = useState(props.search)
+  const [hideAutoComplete, setHideAutoComplete] = useState(true)
   const wrapperRef = useRef(null);
+  const inputRef = useRef();
 
   useEffect(() => {
     
     props.getCharactersThunk(props.search, props.sort, props.pageSize, props.page)
    
   }, [])
+
+  useEffect(() => {
+    
+    setSearch(props.search)
+   
+  }, [props.search])
+
+
 
   const onScroll = () => {
     wrapperRef.current.scrollIntoView(true);
@@ -34,6 +44,8 @@ const Characters2 = (props) => {
   let onKeyPressHandler = (e) =>{
     if (e.keyCode === 13) {
       props.searchThunk(search, props.sort);
+      setHideAutoComplete(true)
+      inputRef.current.blur()
     }
   }
 
@@ -42,8 +54,16 @@ const Characters2 = (props) => {
   }
 
   let onSearchChange = (e) =>{
-    setSearch(e.currentTarget.value)
-    props.updateSearch(e.currentTarget.value)
+    let value = e.currentTarget.value
+    /* setSearch(value) */
+    props.getCharactersAutoCompleteThunk(value, props.sort, props.pageSize)
+    props.updateSearch(value)
+  }
+
+  let onClickAutoComplete = (value) =>{
+    /* setSearch(value) */
+    props.updateSearch(value)
+    props.searchThunk(value, props.sort);
   }
 
   let onSort = (sort) => {
@@ -61,7 +81,10 @@ const Characters2 = (props) => {
 
       <Search sort={props.sort} onSort={onSort} valueSort={'name'} 
         search={props.search} onSearchChange={onSearchChange} 
-        onKeyPressHandler={onKeyPressHandler} onSearch={onSearch} />
+        onKeyPressHandler={onKeyPressHandler} onSearch={onSearch}
+        autoComplete={props.autoComplete} valueSearch={'name'}
+        onClickAutoComplete={onClickAutoComplete} display={hideAutoComplete}
+        setHideAutoComplete={setHideAutoComplete} inputRef={inputRef} />
 
         <div className={s.card_character_wrapper}>
 
@@ -124,10 +147,11 @@ let mapStateToProps = (state) => {
     totalCharacters: state.characters.totalCharacters,
     pageSize: state.characters.pageSize,
     pageChange: state.characters.pageChange,
+    autoComplete: state.characters.autoComplete,
   }
 
 }
 
 export default connect(mapStateToProps, {getCharactersThunk, 
   setAddFavorite, deleteFavorite, 
-  sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch, setPageChange})(Characters2);
+  sortChangeThunk, searchThunk, setTotalPagesCharacters, updateSearch, setPageChange, getCharactersAutoCompleteThunk })(Characters2);

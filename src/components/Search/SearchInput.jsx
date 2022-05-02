@@ -22,12 +22,13 @@ export default function SearchInput(props) {
   return (
     <Box
       sx={{
-        width: 500,
         maxWidth: '100%',
       }}
     >
       <TextField fullWidth label="Search" id="fullWidth" color='error' value={props.search}
-        onChange={props.onSearchChange} className={classes.root} autoComplete='off' onKeyDown={props.onKeyPressHandler}  />
+        onChange={props.onSearchChange} className={classes.root} 
+        autoComplete='off' onKeyDown={props.onKeyPressHandler} onBlur={()=>props.setHideAutoComplete(true)}
+        onFocus={()=>props.setHideAutoComplete(false)} inputRef={props.inputRef} />
     </Box>
   );
 }

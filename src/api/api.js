@@ -40,6 +40,14 @@ export const comicsApi = {
         })
     },
 
+    getComicsAutoComplete(search){
+        return instance.get(`comics?format=comic&${search === '' ? '' : `titleStartsWith=${search}`}&limit=15`)
+        .then(response =>{
+            return response.data;
+        })
+    },
+
+
     getComicsHomePage(sliderSize){
         return instance.get(`comics?format=comic&titleStartsWith=a&orderBy=title&limit=${sliderSize}&offset=47`)
         .then(response =>{

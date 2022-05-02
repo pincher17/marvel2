@@ -11,6 +11,9 @@ const SET_TOTAL_CHARACTERS = 'SET_TOTAL_CHARACTERS'
 const SET_TOTAL_PAGES_CHARACTERS= 'SET_TOTAL_PAGES_CHARACTERS'
 const SET_CHARACTERS_HOME_PAGE = 'SET_CHARACTERS_HOME_PAGE'
 const PAGE_CHANGE = 'PAGE_CHANGE'
+const SET_AUTO_COMPLETE_CHARACTERS = 'SET_AUTO_COMPLETE_CHARACTERS'
+
+
 
 const defaultState = {
     items: [],
@@ -20,6 +23,7 @@ const defaultState = {
     pageChange: false,
     sort: 'name',
     search: "",
+    autoComplete: [],
     favorites: [],
     totalCharacters: 0,
     pageSize: 8,
@@ -59,6 +63,11 @@ function charactersReducer(state = defaultState, action) {
                 ...state,
                 search: action.search,
             };
+        case SET_AUTO_COMPLETE_CHARACTERS:
+            return {
+                ...state,
+                autoComplete: action.characters,
+                };
         case SET_TOTAL_CHARACTERS:
             return {
                 ...state,
@@ -108,6 +117,10 @@ export let updateSearch = (search) => ({
     type: SET_SEARCH,
     search: search,
 });
+export let setAutoCompleteCharacters = (characters) => ({
+    type: SET_AUTO_COMPLETE_CHARACTERS,
+    characters,
+});
 export let setTotalCharacters = (totalCharacters) => ({
     type: SET_TOTAL_CHARACTERS,
     totalCharacters
@@ -125,16 +138,25 @@ export let deleteFavorite = (favoriteId) => ({
     favoriteId: favoriteId,
 });
 
-export const getCharactersThunk = (search, sort, pageSize, page = 1, pageChange) =>{
+export const getCharactersThunk = (search, sort, pageSize, page = 1) =>{
     return (dispatch) => {
         dispatch(setPage(page));
-        dispatch(setPageChange(pageChange))
         dispatch(setFetching(true))
         charactersApi.getCharacters(search, sort, pageSize, page)
         .then(response =>{
             dispatch(setCharacters(response.data.results))
             dispatch(setTotalCharacters(response.data.total))
             dispatch(setFetching(false))
+    })
+    }
+}
+
+export const getCharactersAutoCompleteThunk = (search, sort, pageSize, page = 1) =>{
+    return (dispatch) => {
+        
+        charactersApi.getCharacters(search, sort, pageSize, page)
+        .then(response =>{
+            dispatch(setAutoCompleteCharacters(response.data.results))
     })
     }
 }
