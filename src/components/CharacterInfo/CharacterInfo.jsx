@@ -1,5 +1,4 @@
-import * as axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import s from "./CharacterInfo.module.css";
 import {
@@ -44,7 +43,7 @@ const CharacterInfo = (props) => {
           <div className={s.wrapper_info_text}>
             <div className={s.wrapper_name}>
             <span className={s.name}>{item.name}</span>
-            {props.favorites.find(i => i.id == item.id)
+            {props.favorites.find(i => i.id === item.id)
                 ? (<div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="inherit" />
                  </div>)

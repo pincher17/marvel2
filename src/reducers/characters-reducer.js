@@ -151,10 +151,10 @@ export const getCharactersThunk = (search, sort, pageSize, page = 1) =>{
     }
 }
 
-export const getCharactersAutoCompleteThunk = (search, sort, pageSize, page = 1) =>{
+export const getCharactersAutoCompleteThunk = (search) =>{
     return (dispatch) => {
         
-        charactersApi.getCharacters(search, sort, pageSize, page)
+        charactersApi.getCharactersAutoComplete(search)
         .then(response =>{
             dispatch(setAutoCompleteCharacters(response.data.results))
     })

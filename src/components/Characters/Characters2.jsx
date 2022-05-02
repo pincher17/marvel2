@@ -56,7 +56,7 @@ const Characters2 = (props) => {
   let onSearchChange = (e) =>{
     let value = e.currentTarget.value
     /* setSearch(value) */
-    props.getCharactersAutoCompleteThunk(value, props.sort, props.pageSize)
+    props.getCharactersAutoCompleteThunk(value)
     props.updateSearch(value)
   }
 
@@ -70,7 +70,7 @@ const Characters2 = (props) => {
     props.sortChangeThunk(props.search, sort)
   }
   
-  console.log('character')
+  
   return (
 
     <div>
@@ -101,7 +101,7 @@ const Characters2 = (props) => {
               
               <div className={s.favorite_bg}></div>
 
-              {props.favorites.find(i => i.id == item.id)
+              {props.favorites.find(i => i.id === item.id)
                 ? <Tooltip title="Delete favorite">
                  <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />

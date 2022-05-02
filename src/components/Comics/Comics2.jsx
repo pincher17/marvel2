@@ -99,7 +99,7 @@ const Comics2 = (props) => {
             <div className={s.comics} key={item.id}>
               <div className={s.card_comics}>
                 <div className={s.favorite_bg}></div>
-              {props.favorites.find(i => i.id == item.id)
+              {props.favorites.find(i => i.id === item.id)
                 ? <Tooltip title="Delete favorite">
                  <div  onClick={() => { props.deleteFavorite(item.id) }} className={s.btn_favorite_star}> 
                    <SvgIcon component={StarRoundedIcon} fontSize="large" />

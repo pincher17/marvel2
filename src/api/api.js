@@ -15,6 +15,11 @@ export const charactersApi = {
             return response.data;
         })
     },
+    getCharactersAutoComplete(search){
+        return instance.get(`characters?${search === '' ? '' : `nameStartsWith=${search}`}&limit=8`).then(response =>{
+            return response.data;
+        })
+    },
     getCharactersHomePage(sliderSize){
         return instance.get(`characters?nameStartsWith=a&orderBy=-modified&limit=${sliderSize}&offset=10`).then(response =>{
             return response.data;

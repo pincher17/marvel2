@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ButtonSearch from './ButtonSearch';
 import SearchInput from './SearchInput';
 import s from './Search.module.css';
