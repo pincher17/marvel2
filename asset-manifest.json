@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/marvel2/static/css/main.0c43428a.chunk.css",
-    "main.js": "/marvel2/static/js/main.ba57c84c.chunk.js",
-    "main.js.map": "/marvel2/static/js/main.ba57c84c.chunk.js.map",
-    "runtime-main.js": "/marvel2/static/js/runtime-main.4698ebc8.js",
-    "runtime-main.js.map": "/marvel2/static/js/runtime-main.4698ebc8.js.map",
+    "main.js": "/marvel2/static/js/main.29015bcc.chunk.js",
+    "main.js.map": "/marvel2/static/js/main.29015bcc.chunk.js.map",
+    "runtime-main.js": "/marvel2/static/js/runtime-main.532ca32a.js",
+    "runtime-main.js.map": "/marvel2/static/js/runtime-main.532ca32a.js.map",
     "static/css/2.a3836dfa.chunk.css": "/marvel2/static/css/2.a3836dfa.chunk.css",
-    "static/js/2.3668ee2c.chunk.js": "/marvel2/static/js/2.3668ee2c.chunk.js",
-    "static/js/2.3668ee2c.chunk.js.map": "/marvel2/static/js/2.3668ee2c.chunk.js.map",
-    "static/js/3.db126a67.chunk.js": "/marvel2/static/js/3.db126a67.chunk.js",
-    "static/js/3.db126a67.chunk.js.map": "/marvel2/static/js/3.db126a67.chunk.js.map",
+    "static/js/2.b52ae040.chunk.js": "/marvel2/static/js/2.b52ae040.chunk.js",
+    "static/js/2.b52ae040.chunk.js.map": "/marvel2/static/js/2.b52ae040.chunk.js.map",
+    "static/js/3.d5f4d57a.chunk.js": "/marvel2/static/js/3.d5f4d57a.chunk.js",
+    "static/js/3.d5f4d57a.chunk.js.map": "/marvel2/static/js/3.d5f4d57a.chunk.js.map",
     "index.html": "/marvel2/index.html",
     "static/css/2.a3836dfa.chunk.css.map": "/marvel2/static/css/2.a3836dfa.chunk.css.map",
     "static/css/main.0c43428a.chunk.css.map": "/marvel2/static/css/main.0c43428a.chunk.css.map",
-    "static/js/2.3668ee2c.chunk.js.LICENSE.txt": "/marvel2/static/js/2.3668ee2c.chunk.js.LICENSE.txt",
+    "static/js/2.b52ae040.chunk.js.LICENSE.txt": "/marvel2/static/js/2.b52ae040.chunk.js.LICENSE.txt",
     "static/media/Logo2.fa9d55f0.png": "/marvel2/static/media/Logo2.fa9d55f0.png",
     "static/media/MastHead.module.css": "/marvel2/static/media/marvel-bg10.320ec3e8.png",
     "static/media/slick-theme.css": "/marvel2/static/media/slick.c94f7671.ttf",
@@ -21,10 +21,10 @@
     "static/media/Banner.module.css": "/marvel2/static/media/wp2903386.207550e4.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.4698ebc8.js",
+    "static/js/runtime-main.532ca32a.js",
     "static/css/2.a3836dfa.chunk.css",
-    "static/js/2.3668ee2c.chunk.js",
+    "static/js/2.b52ae040.chunk.js",
     "static/css/main.0c43428a.chunk.css",
-    "static/js/main.ba57c84c.chunk.js"
+    "static/js/main.29015bcc.chunk.js"
   ]
 }
