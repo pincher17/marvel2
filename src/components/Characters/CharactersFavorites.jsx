@@ -29,7 +29,7 @@ const CharactersFavorites = (props) => {
               <NavLink to={"/characters/info/" + item.id} style={{ textDecoration: "none" }}>
                 <div
                   className={s.card_img}
-                  style={{backgroundImage: "url(" + item.thumbnail.path + "/portrait_uncanny.jpg" + ")",}}></div>
+                  style={{backgroundImage: `url(${item.thumbnail.path}/portrait_uncanny.jpg)`}}></div>
                 <div className={s.card_info}>
                   <span className={s.card_name}>{item.name}</span>
                 </div>

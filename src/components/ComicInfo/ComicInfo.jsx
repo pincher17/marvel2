@@ -20,7 +20,6 @@ const ComicInfo = (props) => {
   }, []);
 
 
-
   return (
     <div className={s.wrapper_all}>
       {props.comicInfo.map((item) => (

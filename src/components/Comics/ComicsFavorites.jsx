@@ -28,7 +28,7 @@ debugger;
                  </div>
                  </Tooltip>
               <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
-              <div className={s.card_img} style={{ backgroundImage: 'url(' + item.thumbnail.path + '.jpg' + ')' }}></div>
+              <div className={s.card_img} style={{ backgroundImage: `url(${item.thumbnail.path}/portrait_uncanny.jpg)` }}></div>
               <div className={s.title}>
               <span className={s.card_title}>{item.title}</span>
               </div>
