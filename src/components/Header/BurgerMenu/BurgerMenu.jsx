@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './BurgerMenu.module.css';
-import BurgerBtn from './BurgerBtn/BurgerBtn';
 
 const BurgerMenu = (props) => {
 
