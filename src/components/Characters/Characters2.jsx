@@ -96,7 +96,7 @@ const Characters2 = (props) => {
               </div>
 
             : props.characters.map(item => (
-            
+
             <div className={s.card_character} key={item.id}>
               
               <div className={s.favorite_bg}></div>
