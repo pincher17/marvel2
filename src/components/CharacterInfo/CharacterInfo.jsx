@@ -65,7 +65,7 @@ const CharacterInfo = (props) => {
 
               {props.characterComics.map((item) => (
                 <NavLink to={'/comic/info/' + item.id } style={{ textDecoration: 'none' }}>
-                <div className={s.comic}>
+                <div title={item.title} className={s.comic}>
                   <img
                     src={item.thumbnail.path + "/portrait_xlarge.jpg"}
                     alt=""

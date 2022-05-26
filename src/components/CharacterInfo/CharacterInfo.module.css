@@ -59,6 +59,10 @@
 .comic_title{
   text-decoration: none;
   color: black;
+  width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .btn_favorite_star{
