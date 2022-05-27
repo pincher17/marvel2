@@ -1,0 +1,71 @@
+.wrapper_all{
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 100%;
+  
+}
+
+.wrapper{
+  display: flex;
+}
+
+.wrapper_info{
+  margin-left: 15px;
+}
+
+.title{
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.text{
+  width: 800px;
+}
+
+.comics{
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card_comics{
+  margin-right: 45px;
+}
+
+
+@media (max-width: 1200px){
+  .wrapper_all{
+    max-width: 970px;
+  }
+  .text{
+    width: 642px;
+  }
+}
+
+@media (max-width: 992px){
+  .wrapper_all{
+    max-width: 750px;
+  }
+
+  .text{
+    width: 400px;
+  }
+
+
+}
+
+@media (max-width: 767px){
+  .wrapper_all{
+    max-width: none;
+  }
+  .wrapper{
+    display: block;
+  }
+  .img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+}
+

@@ -10,9 +10,6 @@
   
 }
 
-.wrapper_img{
-  margin-left: 15px;
-}
 
 .wrapper_info_text{
   max-width: 820px;
@@ -85,5 +82,10 @@
   }
   .wrapper_info_text{
     max-width: none;
+  }
+  .wrapper_img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
   }
 }

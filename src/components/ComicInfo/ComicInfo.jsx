@@ -1,5 +1,4 @@
-import * as axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import s from "./ComicInfo.module.css";
@@ -8,6 +7,7 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
 import { setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
+import SkeletonComicInfo from "./SkeletonComicInfo/SkeletonComicInfo";
 
 
 
@@ -19,7 +19,9 @@ const ComicInfo = (props) => {
     props.getComicInfoThunk(comicId);
   }, []);
 
-
+  if(props.isFetching){
+    return <SkeletonComicInfo />
+  }
   return (
     <div className={s.wrapper_all}>
       {props.comicInfo.map((item) => (
@@ -63,6 +65,7 @@ let mapStateToProps = (state) => {
   return {
     comicInfo: state.comicInfo.comic,
     favorites: state.comics.favorites,
+    isFetching: state.fetching.isFetching,
   };
 };
 

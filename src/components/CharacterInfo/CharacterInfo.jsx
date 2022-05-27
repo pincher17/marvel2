@@ -11,6 +11,7 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
 import { useParams } from "react-router-dom";
+import SkeletonCharacterInfo from "./SkeletonCharacterInfo/SkeletonCharacterInfo";
 
 
 
@@ -29,6 +30,10 @@ const CharacterInfo = (props) => {
   useEffect(() => {
     props.getCharacterInfoComicsThunk(characterId);
   }, []);
+
+  if(props.isFetching){
+    return <SkeletonCharacterInfo />
+  }
   
   return (
     <div className={s.wrapper_all}>
@@ -58,7 +63,10 @@ const CharacterInfo = (props) => {
                 <p className={s.info_character}>{item.description}</p>
               </div>
             ) : (
-              <div></div>
+              <div>
+                <p className={s.description}>Description:</p>
+                <p className={s.info_character}>No description</p>
+              </div>
             )}
             <p className={s.head_comics}>Comics with {item.name}:</p>
             <div className={s.comics_wrapper}>
@@ -89,6 +97,7 @@ let mapStateToProps = (state) => {
     characterInfo: state.characterInfo.character,
     characterComics: state.characterInfo.characterComics,
     favorites: state.characters.favorites,
+    isFetching: state.fetching.isFetching
   };
 };
 

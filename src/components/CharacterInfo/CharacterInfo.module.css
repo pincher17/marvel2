@@ -10,10 +10,6 @@
   
 }
 
-.wrapper_img{
-  margin-left: 15px;
-}
-
 .wrapper_info_text{
   max-width: 820px;
   margin-left: 15px;
@@ -95,4 +91,14 @@
   .wrapper_info_text{
     max-width: none;
   }
+  .comic{
+    margin-right: 21px;
+  }
+
+  .wrapper_img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  
 }
