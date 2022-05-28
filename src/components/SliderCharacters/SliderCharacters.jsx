@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import { useSelector } from "react-redux";
 import s from './SliderCharacters.module.css';
 import Tooltip from '@mui/material/Tooltip';
@@ -7,18 +7,20 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import SvgIcon from '@mui/material/SvgIcon';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getCharactersHomePageThunk, setAddFavorite, deleteFavorite} from '../../reducers/characters-reducer';
-
+import { getCharactersHomePageThunk, setAddFavorite, 
+          deleteFavorite} from '../../reducers/characters-reducer';
+import { setSelectSlideCharacters } from '../../reducers/slider-reducer';
 
 
 const SliderCharacters = (props) => {
 
   const characters = useSelector(state => state.characters.charactersHomePage);
   const favorites = useSelector(state => state.characters.favorites);
+  const selectSlide = useSelector(state => state.slider.selectSlideCharacters);
 
-
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(selectSlide);
   const [hiddenArrow, setHiddenArrow] = useState(false)
+
 
   useEffect(() => {
     
@@ -27,12 +29,14 @@ const SliderCharacters = (props) => {
     }else{
       setHiddenArrow(false)
     }
+    props.setSelectSlideCharacters(activeSlide)
     
   }, [activeSlide]) 
 
   const nextSlide = () => {
     if(activeSlide > -66.66){
       setActiveSlide(activeSlide - 22.22)
+      
     }
     
   }
@@ -40,6 +44,7 @@ const SliderCharacters = (props) => {
   const prevSlide = () => {
     if(activeSlide < 0){
       setActiveSlide(activeSlide + 22.22)
+      
     }
     
   }
@@ -47,9 +52,11 @@ const SliderCharacters = (props) => {
   useEffect(() => {
     
     props.getCharactersHomePageThunk(props.sliderSize)
-    
+
   }, []) 
 
+
+  
   return (
     <div className={s.slider_wrapper}>
       
@@ -127,4 +134,4 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {getCharactersHomePageThunk, 
-  setAddFavorite, deleteFavorite})(SliderCharacters);
+  setAddFavorite, deleteFavorite, setSelectSlideCharacters})(SliderCharacters);

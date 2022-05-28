@@ -9,16 +9,16 @@ import Tooltip from '@mui/material/Tooltip';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getComicsHomePageThunk, setAddFavorite, deleteFavorite } from '../../reducers/comics-reducer';
-
+import { setSelectSlideComics } from '../../reducers/slider-reducer';
 
 
 const SliderComics = (props) => {
 
   const comics = useSelector(state => state.comics.comicsHomePage);
   const favorites = useSelector(state => state.comics.favorites);
+  const selectSlide = useSelector(state => state.slider.selectSlideComics);
 
-
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(selectSlide);
   const [hiddenArrow, setHiddenArrow] = useState(false)
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const SliderComics = (props) => {
     }else{
       setHiddenArrow(false)
     }
+    props.setSelectSlideComics(activeSlide)
     
   }, [activeSlide]) 
 
@@ -125,4 +126,4 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {getComicsHomePageThunk, 
-  setAddFavorite, deleteFavorite})(SliderComics);
+  setAddFavorite, deleteFavorite, setSelectSlideComics})(SliderComics);

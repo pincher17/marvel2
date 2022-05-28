@@ -6,7 +6,7 @@ import ComicInfoReducer from "./comicInfo-reducer";
 import comicsReducer from "./comics-reducer";
 import mastHeadReducer from "./mastHead-reducer";
 import spinnerReducer from "./spinner-reducer";
-
+import sliderReducer from "./slider-reducer"
 
 
 const reducers = combineReducers({
@@ -16,8 +16,9 @@ const reducers = combineReducers({
     fetching: spinnerReducer,
     characterInfo: CharacterInfoReducer,
     comicInfo: ComicInfoReducer,
+    slider: sliderReducer,
 })
 
 let store = createStore(reducers, applyMiddleware(thunk));
-
+console.log(store.getState())
 export default store;

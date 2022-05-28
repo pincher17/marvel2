@@ -12,7 +12,7 @@ const SET_TOTAL_PAGES_CHARACTERS= 'SET_TOTAL_PAGES_CHARACTERS'
 const SET_CHARACTERS_HOME_PAGE = 'SET_CHARACTERS_HOME_PAGE'
 const PAGE_CHANGE = 'PAGE_CHANGE'
 const SET_AUTO_COMPLETE_CHARACTERS = 'SET_AUTO_COMPLETE_CHARACTERS'
-
+const SET_SELECT_SLIDE = 'SET_SELECT_SLIDE'
 
 
 const defaultState = {
@@ -137,6 +137,8 @@ export let deleteFavorite = (favoriteId) => ({
     type: DELETE_FAVORITES,
     favoriteId: favoriteId,
 });
+
+
 
 export const getCharactersThunk = (search, sort, pageSize, page = 1) =>{
     return (dispatch) => {
