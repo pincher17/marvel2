@@ -20,7 +20,7 @@ const CharacterInfo = (props) => {
  
   let { characterId } = useParams();
   const info = useSelector(state => state.characterInfo.character);
-  console.log(props.characterInfo)
+  
   
   useEffect(() => {
     
@@ -40,7 +40,7 @@ const CharacterInfo = (props) => {
       {props.characterInfo.map((item) => (
         <div className={s.wrapper}>
           <div className={s.wrapper_img}>
-            <img
+            <img style={{width: '300px', height: '450px'}}
               src={item.thumbnail.path + "/portrait_uncanny.jpg"}
               alt="character"
             />

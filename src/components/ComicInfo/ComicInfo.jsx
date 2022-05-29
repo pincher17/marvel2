@@ -27,7 +27,7 @@ const ComicInfo = (props) => {
       {props.comicInfo.map((item) => (
         <div className={s.wrapper}>
           <div className={s.wrapper_img}>
-            <img
+            <img style={{width: '300px', height: '450px'}}
               src={item.thumbnail.path + "/portrait_uncanny.jpg"}
               alt="comic"
             />
